@@ -13,18 +13,18 @@ const fs = require("fs");
 const querystring = require("querystring");
 const url = require("url");
 const path = require("path");
-const bluebird_1 = require("bluebird");
+const Bluebird = require("bluebird");
 const helper_1 = require("./helper");
 const versions_folder = __dirname + "/../versions";
 function getLatestInfo() {
     return __awaiter(this, void 0, void 0, function* () {
-        const filename_list = yield bluebird_1.default.promisify(fs.readdir)(versions_folder);
+        const filename_list = yield Bluebird.promisify(fs.readdir)(versions_folder);
         const version_info_list = (yield Promise.all(filename_list.map((filename) => __awaiter(this, void 0, void 0, function* () {
             if (!(filename.startsWith("v") && filename.indexOf("#") !== -1)) {
                 return;
             }
             const filepath = path.join(versions_folder, filename);
-            const file_lstat = yield bluebird_1.default.promisify(fs.lstat)(filepath);
+            const file_lstat = yield Bluebird.promisify(fs.lstat)(filepath);
             if (file_lstat.isFile()) {
                 const file_base_info = path.parse(filename).name.split("#");
                 const version = file_base_info[0];

@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as querystring from "querystring";
 import * as url from "url";
 import * as path from "path";
-import Bluebird from 'bluebird';
+import * as Bluebird from "bluebird";
 import { versionToNumber, simpleToTradition } from "./helper";
 
 const versions_folder = __dirname + "/../versions";
