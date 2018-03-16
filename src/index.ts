@@ -95,6 +95,13 @@ http
 				res.end(l.getByLang(lang));
 			});
 			return;
+		} else if (url_info.pathname === "/api/app/version/update") {
+			req.setEncoding("utf8");
+			let data = "";
+			req.on("data", chunk => (data += chunk));
+			req.on("end", () => {
+				console.log(data);
+			});
 		}
 		res.statusCode = 404;
 		res.end();
