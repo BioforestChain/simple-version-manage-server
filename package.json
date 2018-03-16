@@ -1,0 +1,11 @@
+{
+  "name": "simple-api.ifmchain.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "Gaubee",
+  "license": "ISC"
+}
