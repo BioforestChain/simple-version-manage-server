@@ -3,19 +3,19 @@ import * as fs from "fs";
 import * as querystring from "querystring";
 import * as url from "url";
 import * as path from "path";
-import * as util from "util";
+import Bluebird from 'bluebird';
 import { versionToNumber, simpleToTradition } from "./helper";
 
 const versions_folder = __dirname + "/../versions";
 async function getLatestInfo() {
-	const filename_list = await util.promisify(fs.readdir)(versions_folder);
+	const filename_list = await Bluebird.promisify(fs.readdir)(versions_folder);
 	const version_info_list = (await Promise.all(
 		filename_list.map(async filename => {
 			if (!(filename.startsWith("v") && filename.indexOf("#") !== -1)) {
 				return;
 			}
 			const filepath = path.join(versions_folder, filename);
-			const file_lstat = await util.promisify(fs.lstat)(filepath);
+			const file_lstat = await Bluebird.promisify(fs.lstat)(filepath);
 			if (file_lstat.isFile()) {
 				const file_base_info = path.parse(filename).name.split("#");
 				const version = file_base_info[0];

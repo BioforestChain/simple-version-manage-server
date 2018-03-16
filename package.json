@@ -7,5 +7,9 @@
     "test": ""
   },
   "author": "Gaubee",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/bluebird": "^3.5.20",
+    "bluebird": "^3.5.1"
+  }
 }
