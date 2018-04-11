@@ -7,7 +7,7 @@
 	"download_link_android": "http://cdn-blnc.gaubee.com/IBT2.1.8.apk",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
-	"download_link_web": "https://www.ifmchain.com/downloadv2.0.html",
+	"download_link_web": "https://www.ifmchain.com/download.html",
 	"share_message": "",
 	"share_link": "",
 	"share_image_url": "http://cdn-blnc.gaubee.com/download-2.0-qrcode.png",
