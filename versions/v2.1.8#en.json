@@ -1,0 +1,19 @@
+{
+	"version": "2.1.8",
+	"android_version": "2.1.8",
+	"ios_version": "2.1.8",
+	"changelogs": ["Improve application performance", "Increase miner list and details", "Some piecemeal improvements"],
+	"hotreload_version": "",
+	"download_link_android": "http://cdn-blnc.gaubee.com/IBT2.1.8.apk",
+	"download_link_ios_plist":
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+	"download_link_web": "https://www.ifmchain.com/downloadv2.0.html",
+	"share_message": "",
+	"share_link": "",
+	"share_image_url": "http://cdn-blnc.gaubee.com/download-2.0-qrcode.png",
+	"create_time": "2018-04-11T06:14:50.490Z",
+	"apk_size": 67903058,
+	"plist_size": 13145,
+	"//": "……",
+	"success": true
+}
