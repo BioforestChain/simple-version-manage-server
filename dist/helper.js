@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function versionToNumber(version) {
-    const vcodes = version.split(".");
+    const vcodes = version.replace("v", "").split(".");
     /* 一共分三位：
      * 大版本号：*100000
      * 中版本号：*1000
@@ -11,8 +11,8 @@ function versionToNumber(version) {
     var res = 0;
     res += (parseInt(vcodes[0]) || 0) * 100000;
     res += (parseInt(vcodes[1]) || 0) * 1000;
+    res += parseInt(vcodes[2]) || 0;
     const last_info = vcodes[1].split("-");
-    res += parseInt(last_info[0]) || 0;
     res += (parseInt(last_info[1]) || 0) * 0.0001;
     return res;
 }
