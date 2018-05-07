@@ -20,7 +20,9 @@ function getLatestInfo() {
     return __awaiter(this, void 0, void 0, function* () {
         const filename_list = yield Bluebird.promisify(fs.readdir)(versions_folder);
         const version_info_list = (yield Promise.all(filename_list.map((filename) => __awaiter(this, void 0, void 0, function* () {
-            if (!(filename.startsWith("v") && filename.indexOf("#") !== -1)) {
+            if (!(filename.startsWith("v") &&
+                filename.indexOf("#") !== -1 &&
+                filename.endsWith(".json"))) {
                 return;
             }
             const filepath = path.join(versions_folder, filename);

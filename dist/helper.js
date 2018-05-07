@@ -12,7 +12,7 @@ function versionToNumber(version) {
     res += (parseInt(vcodes[0]) || 0) * 100000;
     res += (parseInt(vcodes[1]) || 0) * 1000;
     res += parseInt(vcodes[2]) || 0;
-    const last_info = vcodes[1].split("-");
+    const last_info = vcodes[2].split("-");
     res += (parseInt(last_info[1]) || 0) * 0.0001;
     return res;
 }
