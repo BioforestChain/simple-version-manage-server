@@ -1,0 +1,39 @@
+{
+	"version": "2.2.2",
+	"android_version": "2.2.2",
+	"ios_version": "2.2.2",
+	"changelogs": ["修理テストネットワークコーナー", "オフライン資格情報の受信を修正する"],
+	"hotreload_version": "",
+	"download_link_android": "http://cdn-blnc.gaubee.com/IBT2.2.2.apk",
+	"download_link_ios_plist":
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+	"download_link_web": "https://www.ifmchain.com/download.html",
+	"share_message": "",
+	"share_link": "",
+	"share_image_url": "http://cdn-blnc.gaubee.com/download-2.0-qrcode.png",
+	"create_time": "2018-04-16T05:00:24.946Z",
+	"apk_size": 74801498,
+	"plist_size": 13145,
+	"peer_list": [
+		{
+			"title": "正式なネットワーク",
+			"config": {
+				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "テストネットワーク",
+			"config": {
+				"SERVER_URL": "http://testmainnet.ifmchain.org",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		}
+	],
+	"//": "……",
+	"success": true
+}
