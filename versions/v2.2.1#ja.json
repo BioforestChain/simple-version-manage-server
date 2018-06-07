@@ -24,10 +24,10 @@
 			}
 		},
 		{
-			"title": "正式なネットワーク (テスト版)",
+			"title": "テストネットワーク",
 			"config": {
 				"SERVER_URL": "http://testmainnet.ifmchain.org",
-				"NET_VERSION": "mainnet",
+				"NET_VERSION": "testnet",
 				"BLOCK_UNIT_TIME": 128000,
 				"HIDE_FLAG": "0"
 			}
