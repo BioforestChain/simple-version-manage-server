@@ -1,0 +1,48 @@
+{
+	"version": "2.2.3",
+	"android_version": "2.2.3",
+	"ios_version": "2.2.3",
+	"changelogs": ["增加联系人相关的操作与功能"],
+	"hotreload_version": "",
+	"download_link_android": "http://cdn-blnc.gaubee.com/IBT2.2.3.apk",
+	"download_link_ios_plist":
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+	"download_link_web": "https://www.ifmchain.com/download.html",
+	"share_message": "",
+	"share_link": "",
+	"share_image_url": "http://cdn-blnc.gaubee.com/download-2.0-qrcode.png",
+	"create_time": "2018-04-16T05:00:24.946Z",
+	"apk_size": 74808434,
+	"plist_size": 13145,
+	"peer_list": [
+		{
+			"title": "正式网络",
+			"config": {
+				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "发布测试",
+			"config": {
+				"SERVER_URL": "http://testmainnet.ifmchain.org",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "-1"
+			}
+		},
+		{
+			"title": "Gaubee的测试网络210",
+			"config": {
+				"SERVER_URL": "http://192.168.16.210:19002",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 3000,
+				"HIDE_FLAG": "1"
+			}
+		}
+	],
+	"//": "……",
+	"success": true
+}
