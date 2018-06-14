@@ -1,0 +1,39 @@
+{
+	"version": "3.1.2",
+	"android_version": "3.1.2",
+	"ios_version": "3.1.2",
+	"changelogs": ["下载整个区块链到本地中"],
+	"hotreload_version": "",
+	"download_link_android": "http://cdn-blnc.gaubee.com/IBT3.1.2.apk",
+	"download_link_ios_plist":
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+	"download_link_web": "https://www.ifmchain.com/download.html",
+	"share_message": "将全球首款移动公有链装进手机，将区块链的控制权握在手里！",
+	"share_link": "",
+	"share_image_url": "http://cdn-blnc.gaubee.com/share_img.png",
+	"create_time": "2018-06-14T14:50:24.680Z",
+	"apk_size": 74826350,
+	"plist_size": 13145,
+	"peer_list": [
+		{
+			"title": "正式网络",
+			"config": {
+				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "正式网络",
+			"config": {
+				"SERVER_URL": "http://192.168.16.108:19002",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 10000,
+				"HIDE_FLAG": "0"
+			}
+		}
+	],
+	"//": "……",
+	"success": true
+}
