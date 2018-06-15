@@ -1,0 +1,31 @@
+{
+	"version": "3.1.4",
+	"android_version": "3.1.4",
+	"ios_version": "3.1.4",
+	"changelogs": ["Download the entire blockchain into the local","Completed the display of detailed cards during mining"],
+	"hotreload_version": "",
+	"download_link_android": "http://cdn-blnc.gaubee.com/IBT3.1.4.apk",
+	"download_link_ios_plist":
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+	"download_link_web": "https://www.ifmchain.com/download.html",
+	"share_message":
+		"Put the world’s first mobile public chain into the phone, you grasp the control of blockchain in hand.",
+	"share_link": "",
+	"share_image_url": "http://cdn-blnc.gaubee.com/share_img.png",
+	"create_time": "2018-06-15T14:12:09.157Z",
+	"apk_size": 74827138,
+	"plist_size": 13145,
+	"peer_list": [
+		{
+			"title": "Main Network",
+			"config": {
+				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		}
+	],
+	"//": "……",
+	"success": true
+}
