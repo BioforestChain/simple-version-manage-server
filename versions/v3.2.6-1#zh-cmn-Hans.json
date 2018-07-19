@@ -34,6 +34,15 @@
 			}
 		},
 		{
+			"title": "WZX16.21",
+			"config": {
+				"SERVER_URL": "http://192.168.16.21:19002",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 10000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
 			"title": "test1",
 			"config": {
 				"SERVER_URL": "http://test1.ifmchain.org:19002",
