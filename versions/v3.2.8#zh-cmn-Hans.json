@@ -1,0 +1,30 @@
+{
+	"version": "3.2.8",
+	"android_version": "3.2.8",
+	"ios_version": "3.2.8",
+	"changelogs": ["升级手机节点共识机制"],
+	"hotreload_version": "",
+	"download_link_android": "http://cdn-blnc.gaubee.com/IBT3.2.8.apk",
+	"download_link_ios_plist":
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+	"download_link_web": "https://www.ifmchain.com/ifm-h5/",
+	"share_message": "将全球首款移动公有链装进手机，将区块链的控制权握在手里！",
+	"share_link": "https://www.ifmchain.com/ifm-h5/",
+	"share_image_url": "http://cdn-blnc.gaubee.com/share_img.png",
+	"create_time": "2018-08-01T12:31:13.630Z",
+	"apk_size": 83504318,
+	"plist_size": 133289026,
+	"peer_list": [
+		{
+			"title": "正式网络",
+			"config": {
+				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		}
+	],
+	"//": "……",
+	"success": true
+}

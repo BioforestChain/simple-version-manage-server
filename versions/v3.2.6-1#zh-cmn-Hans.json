@@ -25,18 +25,27 @@
 			}
 		},
 		{
-			"title": "Gaubee21.13",
+			"title": "正式网络",
 			"config": {
-				"SERVER_URL": "http://192.168.21.13:19002",
+				"SERVER_URL": "http://192.168.18.30:9002",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "Gaubee100.5",
+			"config": {
+				"SERVER_URL": "http://192.168.100.5:19002",
 				"NET_VERSION": "testnet",
 				"BLOCK_UNIT_TIME": 10000,
 				"HIDE_FLAG": "0"
 			}
 		},
 		{
-			"title": "WZX16.21",
+			"title": "杨帆：17.53",
 			"config": {
-				"SERVER_URL": "http://192.168.16.21:19002",
+				"SERVER_URL": "http://192.168.17.53:19002",
 				"NET_VERSION": "testnet",
 				"BLOCK_UNIT_TIME": 10000,
 				"HIDE_FLAG": "0"
