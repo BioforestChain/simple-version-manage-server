@@ -6,7 +6,7 @@
 	"hotreload_version": "",
 	"download_link_android": "http://cdn-blnc.gaubee.com/IBT3.2.10.apk",
 	"download_link_ios_plist":
-		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/api/app/version/latest?target=ios-plist",
+		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.ifmchain.com%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.ifmchain.com/ifm-h5/",
 	"share_message":
 		"世界初の携帯式パブリックチェーンを携帯に入れて、ブロックチェーンをコントロールしよう。",
