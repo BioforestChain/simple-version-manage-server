@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = require("http");
 const fs = require("fs");
-const querystring = require("querystring");
 const url = require("url");
 const path = require("path");
 const Bluebird = require("bluebird");
@@ -35,7 +34,7 @@ function getLatestInfo() {
                     filepath,
                     version,
                     lang,
-                    versionNumber: helper_1.versionToNumber(version)
+                    versionNumber: helper_1.versionToNumber(version),
                 };
             }
         })))).filter(v => v);
@@ -75,7 +74,7 @@ function getLatestInfo() {
                 return (map.get("en") ||
                     map.get("zh-cmn-Hans") ||
                     map.values().next().value);
-            }
+            },
         });
     });
 }
@@ -85,18 +84,44 @@ fs.watch(versions_folder, () => {
 });
 /*MOKE DATA*/
 const package_json = require("../package.json");
+const target_mime_map = new Map([
+    ["ios-plist", "application/octet-stream"],
+]);
 /*API SERVER*/
-http
-    .createServer((req, res) => {
-    const url_info = url.parse(req.url);
-    const query = querystring.parse(url_info.query);
+const server = http.createServer((req, res) => {
+    const url_info = url.parse(req.url, true);
+    const { query } = url_info;
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET");
     if (url_info.pathname === "/api/app/version/latest") {
         const lang = query.lang;
         res.setHeader("Content-Type", "application/json");
         latest_version_info.then(l => {
-            res.end(l.getByLang(lang));
+            const config_json = l.getByLang(lang);
+            if (query.target) {
+                const target = query.target;
+                const target_tmp_file_path = path.join(__dirname, "../assets/target-template/", `${target}.tmp`);
+                fs.readFile(target_tmp_file_path, { encoding: "UTF-8" }, (err, tmp_content) => {
+                    if (err) {
+                        res.statusCode = 404;
+                        res.end();
+                    }
+                    else {
+                        const config_obj = JSON.parse(config_json);
+                        const parsed_content = tmp_content.replace(/\$\{([\w\W]+?)\}/g, (_, key) => {
+                            return config_obj[key];
+                        });
+                        const content_type = target_mime_map.get(target);
+                        if (content_type) {
+                            res.setHeader("Content-Type", content_type);
+                        }
+                        res.end(parsed_content);
+                    }
+                });
+            }
+            else {
+                res.end(config_json);
+            }
         });
         return;
     }
@@ -110,6 +135,8 @@ http
     }
     res.statusCode = 404;
     res.end();
-})
-    .listen(8180);
+});
+server.listen(8180, () => {
+    console.log(server.address());
+});
 //# sourceMappingURL=index.js.map

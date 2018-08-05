@@ -6,7 +6,7 @@
 	"hotreload_version": "",
 	"download_link_android": "http://cdn-blnc.gaubee.com/IBT3.2.10.apk",
 	"download_link_ios_plist":
-		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/download.plist",
+		"itms-services://?action=download-manifest&url=https://www.ifmchain.com/api/app/version/latest?target=ios-plist",
 	"download_link_web": "https://www.ifmchain.com/ifm-h5/",
 	"share_message":
 		"Put the world’s first mobile public chain into the phone, you grasp the control of blockchain in hand.",
