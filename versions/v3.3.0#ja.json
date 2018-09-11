@@ -4,7 +4,7 @@
 	"ios_version": "3.3.0",
 	"changelogs": ["新しいデジタル資産"],
 	"hotreload_version": "",
-	"download_link_android": "http://cdn-blnc.gaubee.com/IBT3.3.0.apk",
+	"download_link_android": "http://ifmchain-cdn.gaubee.com/IBT3.3.0.apk",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.ifmchain.com%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.ifmchain.com/ifm-h5/",

@@ -11,7 +11,7 @@
             <key>kind</key>
             <string>software-package</string>
             <key>url</key>
-            <string>https://bngj.gaubee.com/ibt-ios-v${version}.ipa</string>
+            <string>https://ifmchain-cdn.gaubee.com/ibt-ios-v${version}.ipa</string>
             <key>title</key>
             <string>IBT${version}</string>
           </dict>
