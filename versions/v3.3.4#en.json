@@ -1,0 +1,4 @@
+{
+	"@extends": ["./v3.3.4.json"],
+	"changelogs": ["Newly designed mobile blockchain database"]
+}
