@@ -1,0 +1,4 @@
+{
+	"@extends": ["./v3.3.2.json", "./peerlist.development.json"],
+	"changelogs": ["开发模式"]
+}

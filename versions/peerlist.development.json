@@ -1,0 +1,43 @@
+{
+	"peer_list": [
+		{
+			"title": "正式网络",
+			"config": {
+				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "Gaubee 224",
+			"config": {
+				"SERVER_URL": "http://192.168.16.224:19002",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 10000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "35.194.243.101",
+			"config": {
+				"SERVER_URL": "http://35.194.243.101:19002",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 10000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title":"mainnet-rc-35.234.22.253",
+			"config": {
+				"SERVER_URL": "http://35.234.22.253:9002",
+				"FORCE_SCAN": true,
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		}
+	],
+
+	"success": true
+}

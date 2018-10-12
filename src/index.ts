@@ -4,6 +4,7 @@ import * as querystring from "querystring";
 import * as url from "url";
 import * as path from "path";
 import * as Bluebird from "bluebird";
+import * as vm from "vm";
 import { versionToNumber, simpleToTradition } from "./helper";
 
 const versions_folder = __dirname + "/../versions";
@@ -11,13 +12,7 @@ async function getLatestInfo() {
 	const filename_list = await Bluebird.promisify(fs.readdir)(versions_folder);
 	const version_info_list = (await Promise.all(
 		filename_list.map(async filename => {
-			if (
-				!(
-					filename.startsWith("v") &&
-					filename.indexOf("#") !== -1 &&
-					filename.endsWith(".json")
-				)
-			) {
+			if (!(filename.startsWith("v") && filename.indexOf("#") !== -1 && filename.endsWith(".json"))) {
 				return;
 			}
 			const filepath = path.join(versions_folder, filename);
@@ -33,7 +28,7 @@ async function getLatestInfo() {
 					versionNumber: versionToNumber(version),
 				};
 			}
-		}),
+		})
 	)).filter(v => v);
 
 	version_info_list.sort((a, b) => {
@@ -44,7 +39,7 @@ async function getLatestInfo() {
 	for (let i = 0; i < version_info_list.length; i += 1) {
 		const item = version_info_list[i];
 		if (item.versionNumber === latest_versionNumber) {
-			map.set(item.lang, fs.readFileSync(item.filepath, "utf-8"));
+			map.set(item.lang, JSON.stringify(readConfig(item.filepath, item), null, 2));
 		} else {
 			break;
 		}
@@ -68,14 +63,56 @@ async function getLatestInfo() {
 			return res;
 		},
 		getDefault() {
-			return (
-				map.get("en") ||
-				map.get("zh-cmn-Hans") ||
-				map.values().next().value
-			);
+			return map.get("en") || map.get("zh-cmn-Hans") || map.values().next().value;
 		},
 	});
 }
+function readConfig(filepath, version_info) {
+	try {
+		const config_json = fs.readFileSync(filepath, "utf-8");
+		let config = JSON.parse(config_json);
+		let exts: string[] = config["@extends"];
+		delete config["@extends"];
+		if (typeof exts === "string") {
+			exts = [exts];
+		}
+
+		{
+			const helper = {
+				/**条件语句*/
+				IF: "@IF:",
+				get vm_context() {
+					return this._vm_context || (this._vm_context = vm.createContext(version_info));
+				},
+			};
+			const smart_mix = config => {
+				for (let key in config) {
+					const sub_config = config[key];
+					if (typeof sub_config === "object" && sub_config) {
+						smart_mix(sub_config);
+					}
+					if (key.startsWith(helper.IF)) {
+						delete config[key];
+						if (!vm.runInContext(key.substr(helper.IF.length), helper.vm_context)) {
+						} else {
+							config = Object.assign(config, sub_config);
+						}
+					}
+				}
+			};
+			smart_mix(config);
+		}
+		if (exts instanceof Array) {
+			const dirname = path.dirname(filepath);
+			config = Object.assign(config, ...exts.map(ext => readConfig(path.resolve(dirname, ext), version_info)));
+		}
+		return config;
+	} catch (e) {
+		console.log(e);
+		return {};
+	}
+}
+
 var latest_version_info = getLatestInfo();
 
 fs.watch(versions_folder, () => {
@@ -84,9 +121,7 @@ fs.watch(versions_folder, () => {
 /*MOKE DATA*/
 const package_json = require("../package.json");
 
-const target_mime_map = new Map<string, string>([
-	["ios-plist", "application/octet-stream"],
-]);
+const target_mime_map = new Map<string, string>([["ios-plist", "application/octet-stream"], ["ios-plist-rc", "application/octet-stream"]]);
 
 /*API SERVER*/
 const server = http.createServer((req, res) => {
@@ -104,34 +139,23 @@ const server = http.createServer((req, res) => {
 			const config_json = l.getByLang(lang);
 			if (query.target) {
 				const target = query.target as string;
-				const target_tmp_file_path = path.join(
-					__dirname,
-					"../assets/target-template/",
-					`${target}.tmp`,
-				);
-				fs.readFile(
-					target_tmp_file_path,
-					{ encoding: "UTF-8" },
-					(err, tmp_content) => {
-						if (err) {
-							res.statusCode = 404;
-							res.end();
-						} else {
-							const config_obj = JSON.parse(config_json);
-							const parsed_content = tmp_content.replace(
-								/\$\{([\w\W]+?)\}/g,
-								(_, key) => {
-									return config_obj[key];
-								},
-							);
-							const content_type = target_mime_map.get(target);
-							if (content_type) {
-								res.setHeader("Content-Type", content_type);
-							}
-							res.end(parsed_content);
+				const target_tmp_file_path = path.join(__dirname, "../assets/target-template/", `${target}.tmp`);
+				fs.readFile(target_tmp_file_path, { encoding: "UTF-8" }, (err, tmp_content) => {
+					if (err) {
+						res.statusCode = 404;
+						res.end();
+					} else {
+						const config_obj = JSON.parse(config_json);
+						const parsed_content = tmp_content.replace(/\$\{([\w\W]+?)\}/g, (_, key) => {
+							return config_obj[key];
+						});
+						const content_type = target_mime_map.get(target);
+						if (content_type) {
+							res.setHeader("Content-Type", content_type);
 						}
-					},
-				);
+						res.end(parsed_content);
+					}
+				});
 			} else {
 				res.end(config_json);
 			}

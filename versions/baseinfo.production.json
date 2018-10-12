@@ -1,0 +1,32 @@
+{
+	"@IF:lang==='zh-cmn-Hans'": {
+		"share_message": "将全球首款移动公有链装进手机，将区块链的控制权握在手里！"
+	},
+	"@IF:lang==='en'": {
+		"share_message": "Put the world’s first mobile public chain into the phone, you grasp the control of blockchain in hand."
+	},
+	"@IF:lang==='ja'": {
+		"share_message": "世界初の携帯式パブリックチェーンを携帯に入れて、ブロックチェーンをコントロールしよう。"
+	},
+	"peer_list": [
+		{
+			"@IF:lang==='zh-cmn-Hans'": {
+				"title": "正式网络"
+			},
+			"@IF:lang==='en'": {
+				"title": "Main Network"
+			},
+			"@IF:lang==='ja'": {
+				"title": "正式なネットワーク"
+			},
+			"config": {
+				"SERVER_URL": "http://publish.ifmchain.org",
+				"NET_VERSION": "mainnet",
+				"BLOCK_UNIT_TIME": 128000,
+				"HIDE_FLAG": "0"
+			}
+		}
+	],
+
+	"success": true
+}
