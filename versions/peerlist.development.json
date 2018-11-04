@@ -3,6 +3,7 @@
 		{
 			"title": "正式网络",
 			"config": {
+				"BACKEND_VERSION": "v3.1.3/",
 				"SERVER_URL": "http://mainnet.ifmchain.org",
 				"NET_VERSION": "mainnet",
 				"BLOCK_UNIT_TIME": 128000,
@@ -10,17 +11,29 @@
 			}
 		},
 		{
-			"title": "Gaubee 224",
+			"title": "Gaubee 20.106",
 			"config": {
-				"SERVER_URL": "http://192.168.16.224:19002",
+				"BACKEND_VERSION": "",
+				"SERVER_URL": "http://192.168.20.106:19002",
 				"NET_VERSION": "testnet",
 				"BLOCK_UNIT_TIME": 10000,
 				"HIDE_FLAG": "0"
 			}
 		},
 		{
-			"title": "35.194.243.101",
+			"title": "TEST1",
 			"config": {
+				"BACKEND_VERSION": "v3.1.1/",
+				"SERVER_URL": "http://test1.ifmchain.org:19002",
+				"NET_VERSION": "testnet",
+				"BLOCK_UNIT_TIME": 10000,
+				"HIDE_FLAG": "0"
+			}
+		},
+		{
+			"title": "TEST 35.194.243.101",
+			"config": {
+				"BACKEND_VERSION": "v3.1.1/",
 				"SERVER_URL": "http://35.194.243.101:19002",
 				"NET_VERSION": "testnet",
 				"BLOCK_UNIT_TIME": 10000,
@@ -28,9 +41,10 @@
 			}
 		},
 		{
-			"title":"mainnet-rc-35.234.22.253",
+			"title": "上一个版本保留的服务器35.190.23.24",
 			"config": {
-				"SERVER_URL": "http://35.234.22.253:9002",
+				"BACKEND_VERSION": "v3.0.1/",
+				"SERVER_URL": "http://35.190.23.24:80",
 				"FORCE_SCAN": true,
 				"NET_VERSION": "mainnet",
 				"BLOCK_UNIT_TIME": 128000,
