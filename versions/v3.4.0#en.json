@@ -1,0 +1,4 @@
+{
+	"@extends": ["./v3.4.0.json"],
+	"changelogs": ["Please uninstall the old version of IBT to reinstall."]
+}

@@ -1,0 +1,4 @@
+{
+	"@extends": ["./v3.4.0.json"],
+	"changelogs": ["请卸载旧版本的IBT进行重新安装"]
+}

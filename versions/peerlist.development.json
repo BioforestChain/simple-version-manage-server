@@ -1,57 +1,93 @@
 {
-	"peer_list": [
-		{
-			"title": "正式网络",
-			"config": {
-				"BACKEND_VERSION": "v3.1.3/",
-				"SERVER_URL": "http://mainnet.ifmchain.org",
-				"NET_VERSION": "mainnet",
-				"BLOCK_UNIT_TIME": 128000,
-				"HIDE_FLAG": "0"
-			}
-		},
-		{
-			"title": "Gaubee 20.106",
-			"config": {
-				"BACKEND_VERSION": "",
-				"SERVER_URL": "http://192.168.20.106:19002",
-				"NET_VERSION": "testnet",
-				"BLOCK_UNIT_TIME": 10000,
-				"HIDE_FLAG": "0"
-			}
-		},
-		{
-			"title": "TEST1",
-			"config": {
-				"BACKEND_VERSION": "v3.1.1/",
-				"SERVER_URL": "http://test1.ifmchain.org:19002",
-				"NET_VERSION": "testnet",
-				"BLOCK_UNIT_TIME": 10000,
-				"HIDE_FLAG": "0"
-			}
-		},
-		{
-			"title": "TEST 35.194.243.101",
-			"config": {
-				"BACKEND_VERSION": "v3.1.1/",
-				"SERVER_URL": "http://35.194.243.101:19002",
-				"NET_VERSION": "testnet",
-				"BLOCK_UNIT_TIME": 10000,
-				"HIDE_FLAG": "0"
-			}
-		},
-		{
-			"title": "上一个版本保留的服务器35.190.23.24",
-			"config": {
-				"BACKEND_VERSION": "v3.0.1/",
-				"SERVER_URL": "http://35.190.23.24:80",
-				"FORCE_SCAN": true,
-				"NET_VERSION": "mainnet",
-				"BLOCK_UNIT_TIME": 128000,
-				"HIDE_FLAG": "0"
-			}
-		}
-	],
+  "peer_list": [
+    {
+      "title": "正式网络",
+      "config": {
+        "BACKEND_VERSION": "v3.1.3/",
+        "SERVER_URL": "http://mainnet.ifmchain.org",
+        "NET_VERSION": "mainnet",
+        "BLOCK_UNIT_TIME": 128000,
+        "HIDE_FLAG": "0"
+      }
+    },
+    {
+      "title": "预发布网络",
+      "config": {
+        "BACKEND_VERSION": "",
+        "SERVER_URL": "http://mainnet.ifmchain.org",
+        "HIDE_FLAG": "0",
+        "RELOAD_APP": true
+      }
+    },
+    {
+      "title": "海涛 192.168.110.130",
+      "config": {
+        "BACKEND_VERSION": "",
+        "SERVER_URL": "http://192.168.110.130:19002",
+        "HIDE_FLAG": "0",
+        "RELOAD_APP": false
+      }
+    },
+    {
+      "title": "谷歌云搞事情35.220.204.160",
+      "config": {
+        "BACKEND_VERSION": "",
+        "SERVER_URL": "http://35.220.204.160:19002",
+        "HIDE_FLAG": "0",
+        "RELOAD_APP": false
+      }
+    },
+    {
+      "title": "Gaubee 20.106",
+      "config": {
+        "BACKEND_VERSION": "",
+        "SERVER_URL": "http://192.168.20.106:19002",
+        "HIDE_FLAG": "0",
+        "RELOAD_APP": true
+      }
+    },
+    {
+      "title": "Gaubee 50.47",
+      "config": {
+        "BACKEND_VERSION": "",
+        "SERVER_URL": "http://192.168.50.47:19002",
+        "HIDE_FLAG": "0",
+        "RELOAD_APP": false
+      }
+    },
+    {
+      "title": "TEST1",
+      "config": {
+        "BACKEND_VERSION": "v3.1.1/",
+        "SERVER_URL": "http://test1.ifmchain.org:19002",
+        "NET_VERSION": "testnet",
+        "BLOCK_UNIT_TIME": 10000,
+        "HIDE_FLAG": "0"
+      }
+    },
+    {
+      "title": "TEST 35.194.243.101",
+      "config": {
+        "BACKEND_VERSION": "v3.1.1/",
+        "SERVER_URL": "http://35.194.243.101:19002",
+        "NET_VERSION": "testnet",
+        "BLOCK_UNIT_TIME": 10000,
+        "MAGIC": "5f720c81e82cfc99",
+        "HIDE_FLAG": "0"
+      }
+    },
+    {
+      "title": "上一个版本保留的服务器35.190.23.24",
+      "config": {
+        "BACKEND_VERSION": "v3.0.1/",
+        "SERVER_URL": "http://35.190.23.24:80",
+        "FORCE_SCAN": true,
+        "NET_VERSION": "mainnet",
+        "BLOCK_UNIT_TIME": 128000,
+        "HIDE_FLAG": "0"
+      }
+    }
+  ],
 
-	"success": true
+  "success": true
 }
