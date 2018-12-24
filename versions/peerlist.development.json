@@ -11,21 +11,22 @@
       }
     },
     {
-      "title": "预发布网络",
+      "title": "海涛用这个12月24号",
       "config": {
         "BACKEND_VERSION": "",
-        "SERVER_URL": "http://mainnet.ifmchain.org",
+        "SERVER_URL": "http://35.221.158.2:9002",
         "HIDE_FLAG": "0",
         "RELOAD_APP": true
       }
     },
     {
-      "title": "海涛 192.168.110.130",
+      "title": "桌面云搞事情 192.168.110.21",
       "config": {
         "BACKEND_VERSION": "",
-        "SERVER_URL": "http://192.168.110.130:19002",
+        "SERVER_URL": "http://192.168.110.21:19002",
+        "FORCE_SCAN": true,
         "HIDE_FLAG": "0",
-        "RELOAD_APP": false
+        "RELOAD_APP": true
       }
     },
     {
