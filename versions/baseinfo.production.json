@@ -21,9 +21,8 @@
 			},
 			"config": {
 				"SERVER_URL": "http://mainnet.ifmchain.org",
-				"NET_VERSION": "mainnet",
-				"BLOCK_UNIT_TIME": 128000,
-				"HIDE_FLAG": "0"
+				"HIDE_FLAG": "0",
+				"RELOAD_APP": true
 			}
 		}
 	],
