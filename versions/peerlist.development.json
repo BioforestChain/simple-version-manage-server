@@ -11,10 +11,10 @@
       }
     },
     {
-      "title": "海涛用这个12月24号",
+      "title": "desktop cloud 110.21~30",
       "config": {
         "BACKEND_VERSION": "",
-        "SERVER_URL": "http://35.221.158.2:9002",
+        "SERVER_URL": "http://192.168.110.21:19002",
         "HIDE_FLAG": "0",
         "RELOAD_APP": true
       }
