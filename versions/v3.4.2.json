@@ -1,8 +1,8 @@
 {
 	"version": "3.4.2",
 	"android_version": "3.4.2",
-	"ios_version": "3.4.2",
-	"ios_rc_version": "3.4.2",
+	"ios_version": "3.4.1",
+	"ios_rc_version": "3.4.1",
 	"hotreload_version": "",
 	"download_link_android": "http://ifmchain-cdn.gaubee.com/IBT3.4.2.apk",
 	"download_link_ios_plist":
