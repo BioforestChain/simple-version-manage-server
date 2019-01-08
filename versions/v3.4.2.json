@@ -1,8 +1,8 @@
 {
 	"version": "3.4.2",
 	"android_version": "3.4.2",
-	"ios_version": "3.4.1",
-	"ios_rc_version": "3.4.1",
+	"ios_version": "3.4.2",
+	"ios_rc_version": "3.4.2",
 	"hotreload_version": "",
 	"download_link_android": "http://ifmchain-cdn.gaubee.com/IBT3.4.2.apk",
 	"download_link_ios_plist":
@@ -12,6 +12,6 @@
 	"share_image_url": "http://ifmchain-cdn.gaubee.com/share_img.png",
 	"create_time": "2019-01-08T06:47:07.373Z",
 	"apk_size": 105072812,
-	"plist_size": 153289026,
+	"plist_size": 169123694,
 	"@extends": "./baseinfo.production.json"
 }
