@@ -20,7 +20,7 @@
 				"title": "正式なネットワーク"
 			},
 			"config": {
-				"SERVER_URL": "http://mainnet.ifmchain.org",
+				"SERVER_URL": "http://mainnet.bfchain.org",
 				"HIDE_FLAG": "0",
 				"RELOAD_APP": true
 			}
