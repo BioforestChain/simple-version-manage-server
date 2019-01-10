@@ -1,7 +1,0 @@
-{
-	"@extends": ["./v3.4.1.json"],
-	"changelogs": [
-		"Add the feature of Exchange-Asset-Transaction",
-		"Self-paying transfer fee for offline voucher"
-	]
-}

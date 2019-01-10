@@ -1,16 +1,16 @@
 {
-	"version": "3.4.2",
-	"android_version": "3.4.2",
-	"ios_version": "3.4.2",
-	"ios_rc_version": "3.4.2",
+	"version": "0.0.1",
+	"android_version": "0.0.1",
+	"ios_version": "0.0.1",
+	"ios_rc_version": "0.0.1",
 	"hotreload_version": "",
-	"download_link_android": "http://ifmchain-cdn.gaubee.com/IBT3.4.2.apk",
+	"download_link_android": "http://ifmchain-cdn.gaubee.com/IBT0.0.1.apk",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.bfchain.com/dl/",
 	"share_link": "https://www.bfchain.com/dl/",
 	"share_image_url": "http://ifmchain-cdn.gaubee.com/share_img.png",
-	"create_time": "2019-01-08T06:47:07.373Z",
+	"create_time": "2019-01-10T16:39:01.641Z",
 	"apk_size": 105072812,
 	"plist_size": 169123694,
 	"@extends": "./baseinfo.production.json"

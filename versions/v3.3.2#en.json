@@ -1,4 +1,0 @@
-{
-	"@extends": ["./v3.3.2.json"],
-	"changelogs": ["Improve performance and stability"]
-}
