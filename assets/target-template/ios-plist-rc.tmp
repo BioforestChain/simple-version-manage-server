@@ -11,21 +11,21 @@
             <key>kind</key>
             <string>software-package</string>
             <key>url</key>
-            <string>https://ifmchain-cdn.gaubee.com/ibt-ios-v${ios_rc_version}.ipa</string>
+            <string>https://ifmchain-cdn.gaubee.com/bft-ios-v${ios_rc_version}.ipa</string>
             <key>title</key>
-            <string>IBT${ios_rc_version}</string>
+            <string>BFT${ios_rc_version}</string>
           </dict>
         </array>
         <key>metadata</key>
         <dict>
           <key>bundle-identifier</key>
-          <string>cn.bnqkl.ifmchain</string>
+          <string>cn.bnqkl.bfchain</string>
           <key>bundle-version</key>
           <string>1.0</string>
           <key>kind</key>
           <string>software</string>
           <key>title</key>
-          <string>IBT${ios_rc_version}</string>
+          <string>BFT${ios_rc_version}</string>
         </dict>
       </dict>
     </array>
