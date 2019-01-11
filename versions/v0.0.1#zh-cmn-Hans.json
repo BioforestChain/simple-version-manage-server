@@ -1,5 +1,5 @@
 {
-	"@extends": ["./v3.4.2.json"],
+	"@extends": ["./v0.0.1.json"],
 	"changelogs": [
 		"小小的改进，让IFMChain更美好"
 	]
