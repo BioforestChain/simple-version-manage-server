@@ -1,8 +1,8 @@
 {
 	"version": "0.0.2",
 	"android_version": "0.0.2",
-	"ios_version": "0.0.1",
-	"ios_rc_version": "0.0.1",
+	"ios_version": "0.0.2",
+	"ios_rc_version": "0.0.2",
 	"hotreload_version": "",
 	"download_link_android": "https://ifmchain-cdn.gaubee.com/BFT0.0.2.apk",
 	"download_link_ios_plist":
@@ -12,6 +12,6 @@
 	"share_image_url": "http://ifmchain-cdn.gaubee.com/share_img.png",
 	"create_time": "2019-01-15T16:13:34.186Z",
 	"apk_size": 102620268,
-	"plist_size": 169123694,
+	"plist_size": 165951322,
 	"@extends": "./baseinfo.production.json"
 }
