@@ -1,0 +1,6 @@
+{
+	"@extends": ["./v0.0.3.json"],
+	"changelogs": [
+		"Small improvements make IFMChain better"
+	]
+}
