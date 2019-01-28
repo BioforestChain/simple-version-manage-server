@@ -1,6 +1,6 @@
 {
 	"@extends": ["./v0.0.4.json"],
 	"changelogs": [
-		"小小的改进，让IFMChain更美好"
+		"小小的改进，让BFChain更美好"
 	]
 }
