@@ -1,8 +1,8 @@
 {
 	"version": "0.0.4",
 	"android_version": "0.0.4",
-	"ios_version": "0.0.3",
-	"ios_rc_version": "0.0.3",
+	"ios_version": "0.0.4",
+	"ios_rc_version": "0.0.4",
 	"hotreload_version": "",
 	"download_link_android": "https://ifmchain-cdn.gaubee.com/BFT0.0.4.apk",
 	"download_link_ios_plist":
