@@ -1,0 +1,6 @@
+{
+	"@extends": ["./v0.0.6.json"],
+	"changelogs": [
+		"小さな改良によりBFChainが良くなりました"
+	]
+}
