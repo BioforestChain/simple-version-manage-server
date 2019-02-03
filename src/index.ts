@@ -48,8 +48,8 @@ async function getLatestInfo() {
 		getByLang(lang: string) {
 			var res = map.get(lang);
 			if (!res) {
-				if (lang == "zh-cmn-Hant") {
-					res = map.get("zh-cmn-Hans");
+				if (lang == "zh-Hant") {
+					res = map.get("zh-Hans");
 					if (res) {
 						res = simpleToTradition(res);
 						map.set(lang, res);
@@ -63,7 +63,7 @@ async function getLatestInfo() {
 			return res;
 		},
 		getDefault() {
-			return map.get("en") || map.get("zh-cmn-Hans") || map.values().next().value;
+			return map.get("eng") || map.get("zh-Hans") || map.values().next().value;
 		},
 	});
 }
