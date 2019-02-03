@@ -10,13 +10,13 @@
 	},
 	"peer_list": [
 		{
-			"@IF:lang==='zh-cmn-Hans'": {
+			"@IF:lang==='zh-Hans'": {
 				"title": "正式网络"
 			},
-			"@IF:lang==='en'": {
+			"@IF:lang==='eng'": {
 				"title": "Main Network"
 			},
-			"@IF:lang==='ja'": {
+			"@IF:lang==='jpn'": {
 				"title": "正式なネットワーク"
 			},
 			"config": {
