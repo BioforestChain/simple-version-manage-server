@@ -4,8 +4,8 @@
 	"ios_version": "0.0.7",
 	"ios_rc_version": "0.0.7",
 	"hotreload_version": "",
-	"download_link_android": "https://package.bfchain.org/BFT0.0.7-r2.apk",
-	"download_link_ios": "https://package.bfchain.org/bft-ios-0.0.7-d2.ipa",
+	"download_link_android": "https://package.bfchain.org/BFT0.0.7-r1.apk",
+	"download_link_ios": "https://package.bfchain.org/bft-ios-0.0.7-d1.ipa",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.bfchain.org/",
