@@ -1,17 +1,17 @@
 {
-	"version": "0.0.8",
-	"android_version": "0.0.8",
+	"version": "0.0.9",
+	"android_version": "0.0.9",
 	"ios_version": "0.0.8",
 	"ios_rc_version": "0.0.8",
 	"hotreload_version": "",
-	"download_link_android": "https://ifmchain-cdn.gaubee.com/BFT0.0.8.apk",
+	"download_link_android": "https://ifmchain-cdn.gaubee.com/BFT0.0.9.apk",
 	"download_link_ios": "https://ifmchain-cdn.gaubee.com/bft-ios-0.0.8.ipa",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.bfchain.org/",
 	"share_link": "https://www.bfchain.org/",
 	"share_image_url": "http://ifmchain-cdn.gaubee.com/share_img.png",
-	"create_time": "2019-02-04T15:43:17.430Z",
+	"create_time": "2019-02-04T15:49:51.924Z",
 	"apk_size": 101550048,
 	"plist_size": 171442176,
 	"@extends": "./baseinfo.production.json"
