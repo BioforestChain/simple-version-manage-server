@@ -1,0 +1,6 @@
+{
+	"@extends": ["./v0.0.8.json"],
+	"changelogs": [
+		"红包功能来袭"
+	]
+}

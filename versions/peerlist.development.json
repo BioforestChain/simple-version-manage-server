@@ -20,6 +20,25 @@
         "SERVER_URL": "http://mainnet.ifmchain.org",
         "RELOAD_APP": true
       }
+    },
+    {
+      "title": "矿机OTC",
+      "config": {
+        "SERVER_URL": "http://52.221.134.165:19002",
+        "RELOAD_APP": true
+      }
+    },
+    {
+      "title": "开启开发者模式",
+      "config": {
+        "debug": "BNQKL*"
+      }
+    },
+    {
+      "title": "关闭开发者模式",
+      "config": {
+        "debug": ""
+      }
     }
   ],
 

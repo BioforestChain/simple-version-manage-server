@@ -1,0 +1,6 @@
+{
+	"@extends": ["./v0.0.7.json"],
+	"changelogs": [
+		"You can send the red envelope for your friends now!!"
+	]
+}
