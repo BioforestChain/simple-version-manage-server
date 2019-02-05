@@ -1,11 +1,11 @@
 {
 	"version": "0.1.0",
 	"android_version": "0.1.0",
-	"ios_version": "0.0.9",
-	"ios_rc_version": "0.0.9",
+	"ios_version": "0.1.0",
+	"ios_rc_version": "0.1.0",
 	"hotreload_version": "",
 	"download_link_android": "https://ifmchain-cdn.gaubee.com/BFT0.1.0.apk",
-	"download_link_ios": "https://ifmchain-cdn.gaubee.com/bft-ios-v0.0.9.ipa",
+	"download_link_ios": "https://ifmchain-cdn.gaubee.com/bft-ios-v0.1.0.ipa",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.bfchain.org/",
