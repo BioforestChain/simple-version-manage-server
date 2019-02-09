@@ -13,6 +13,6 @@
 	"share_image_url": "http://ifmchain-cdn.gaubee.com/share_img.png",
 	"create_time": "2019-02-09T12:12:34.130Z",
 	"apk_size": 103455744,
-	"plist_size": 171442176,
+	"plist_size": 167084032,
 	"@extends": "./baseinfo.production.json"
 }
