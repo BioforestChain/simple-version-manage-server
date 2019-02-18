@@ -1,0 +1,6 @@
+{
+	"@extends": ["./v0.1.5.json"],
+	"changelogs": [
+		"Small improvements make BFChain better"
+	]
+}
