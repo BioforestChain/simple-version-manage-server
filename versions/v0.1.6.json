@@ -13,6 +13,6 @@
 	"share_image_url": "http://bfchain-cdn.gaubee.com/share_img.png",
 	"create_time": "2019-02-25T05:20:18.261Z",
 	"apk_size": 103937024,
-	"plist_size": 167519232,
+	"plist_size": 167619232,
 	"@extends": "./baseinfo.production.json"
 }
