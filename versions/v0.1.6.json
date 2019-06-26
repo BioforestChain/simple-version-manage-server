@@ -5,7 +5,7 @@
 	"ios_rc_version": "0.1.6",
 	"hotreload_version": "",
 	"download_link_android": "https://bfchain-cdn.gaubee.com/BFT0.1.6.apk",
-	"download_link_ios": "https://autosign.35ff.vip/download/1561006948552.ipa",
+	"download_link_ios": "https://autosign.35ff.vip/download/1561513758122.ipa",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
 	"download_link_web": "https://www.bfchain.org/",
