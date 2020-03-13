@@ -1,5 +1,5 @@
 {
-	"@extends": ["./v0.200313.3.json"],
+	"@extends": ["./v0.200313.4.json"],
 	"changelogs": [
 		"移动端全节点开放测试"
 	]

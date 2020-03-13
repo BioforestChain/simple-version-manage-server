@@ -9,7 +9,7 @@ import { versionToNumber, simpleToTradition } from "./helper";
 
 const versions_folder = __dirname + "/../versions";
 async function getLatestInfo() {
-	const filename_list = await Bluebird.promisify(fs.readdir)(versions_folder);
+	const filename_list = await Bluebird.promisify(fs.readdir)(versions_folder) as any[];
 	const version_info_list = (await Promise.all(
 		filename_list.map(async filename => {
 			if (!(filename.startsWith("v") && filename.indexOf("#") !== -1 && filename.endsWith(".json"))) {
