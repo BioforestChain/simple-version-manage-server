@@ -1,0 +1,6 @@
+{
+	"@extends": ["./v0.200313.3.json"],
+	"changelogs": [
+		"Full-Node on mobile is now open for testing"
+	]
+}
