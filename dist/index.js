@@ -15,11 +15,12 @@ const url = require("url");
 const path = require("path");
 const Bluebird = require("bluebird");
 const vm = require("vm");
+const child_process_1 = require("child_process");
 const helper_1 = require("./helper");
 const versions_folder = __dirname + "/../versions";
 function getLatestInfo() {
     return __awaiter(this, void 0, void 0, function* () {
-        const filename_list = yield Bluebird.promisify(fs.readdir)(versions_folder);
+        const filename_list = (yield Bluebird.promisify(fs.readdir)(versions_folder));
         const version_info_list = (yield Promise.all(filename_list.map((filename) => __awaiter(this, void 0, void 0, function* () {
             if (!(filename.startsWith("v") && filename.indexOf("#") !== -1 && filename.endsWith(".json"))) {
                 return;
@@ -34,7 +35,7 @@ function getLatestInfo() {
                     filepath,
                     version,
                     lang,
-                    versionNumber: helper_1.versionToNumber(version),
+                    versionNumber: helper_1.versionToNumber(version)
                 };
             }
         })))).filter(v => v);
@@ -72,7 +73,7 @@ function getLatestInfo() {
             },
             getDefault() {
                 return map.get("eng") || map.get("zh-Hans") || map.values().next().value;
-            },
+            }
         });
     });
 }
@@ -91,7 +92,7 @@ function readConfig(filepath, version_info) {
                 IF: "@IF:",
                 get vm_context() {
                     return this._vm_context || (this._vm_context = vm.createContext(version_info));
-                },
+                }
             };
             const smart_mix = config => {
                 for (let key in config) {
@@ -128,7 +129,10 @@ fs.watch(versions_folder, () => {
 });
 /*MOKE DATA*/
 const package_json = require("../package.json");
-const target_mime_map = new Map([["ios-plist", "application/octet-stream"], ["ios-plist-rc", "application/octet-stream"]]);
+const target_mime_map = new Map([
+    ["ios-plist", "application/octet-stream"],
+    ["ios-plist-rc", "application/octet-stream"]
+]);
 /*API SERVER*/
 const server = http.createServer((req, res) => {
     const url_info = url.parse(req.url, true);
@@ -168,12 +172,25 @@ const server = http.createServer((req, res) => {
         return;
     }
     else if (url_info.pathname === "/api/app/version/update") {
-        req.setEncoding("utf8");
-        let data = "";
-        req.on("data", chunk => (data += chunk));
-        req.on("end", () => {
-            console.log(data);
+        // req.setEncoding("utf8");
+        // let data = "";
+        // req.on("data", chunk => (data += chunk));
+        // req.on("end", () => {
+        // 	console.log(data);
+        // });
+        const updater = child_process_1.spawn("git", ["pull"], {
+            cwd: path.resolve(__dirname, "../")
         });
+        updater.stdout.on("data", msg => {
+            res.write(msg);
+        });
+        updater.stderr.on("data", data => {
+            res.write(data);
+        });
+        updater.on("close", () => {
+            res.end();
+        });
+        return;
     }
     res.statusCode = 404;
     res.end();
