@@ -1,5 +1,5 @@
 {
-  "@extends": ["./v0.200322.7.json"],
+  "@extends": ["./v0.200322.6.json"],
   "changelogs": [
     "Full-Node on mobile is now open for testing",
     "Improved stability of blockchain network and synchronization",
