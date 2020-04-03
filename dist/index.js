@@ -123,9 +123,20 @@ function readConfig(filepath, version_info) {
         return {};
     }
 }
-var latest_version_info = getLatestInfo();
+function exportLatestInfo() {
+    const latest_version_info = getLatestInfo();
+    const latest_android_json = latest_version_info.then(l => {
+        const config = JSON.parse(l.getDefault());
+        return {
+            android_link: config.download_link_android,
+            version: config.version
+        };
+    });
+    return [latest_version_info, latest_android_json];
+}
+let [latest_version_info, latest_android_json] = exportLatestInfo();
 fs.watch(versions_folder, () => {
-    latest_version_info = getLatestInfo();
+    let [latest_version_info, latest_android_json] = exportLatestInfo();
 });
 /*MOKE DATA*/
 const package_json = require("../package.json");
@@ -189,6 +200,14 @@ const server = http.createServer((req, res) => {
         });
         updater.on("close", () => {
             res.end();
+        });
+        return;
+    }
+    else if (url_info.pathname === "/api/app/download/apk") {
+        latest_android_json.then(json => {
+            res.statusCode = 301;
+            res.setHeader("location", json.android_link);
+            res.end(`Download BFChain v${json.version}`);
         });
         return;
     }
