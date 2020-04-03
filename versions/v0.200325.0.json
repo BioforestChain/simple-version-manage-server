@@ -1,10 +1,14 @@
 {
 	"version": "0.200325.0",
 	"android_version": "0.200325.0",
+	"android_beta_version": "0.200329.0",
+	"android_alpha_version": "0.200331.0",
 	"ios_version": "0.1.6",
 	"ios_rc_version": "0.1.6",
 	"hotreload_version": "",
 	"download_link_android": "https://www.bfchain.org/PROD/BFT-release-0.200325.0.apk",
+	"beta_download_link_android": "https://www.bfchain.org/test/BFT-release-0.200329.0.apk",
+	"alpha_download_link_android": "https://www.bfchain.org/test/BFT-release-0.200331.0.apk",
 	"download_link_ios": "https://bfchain-cdn.bnqkl.cn/bft-ios-v0.1.6.ipa",
 	"download_link_ios_plist":
 		"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",

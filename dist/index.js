@@ -128,8 +128,12 @@ function exportLatestInfo() {
     const latest_android_json = latest_version_info.then(l => {
         const config = JSON.parse(l.getDefault());
         return {
+            version: config.version,
+            beta_version: config.beta_version,
+            alpha_version: config.alpha_version,
             android_link: config.download_link_android,
-            version: config.version
+            beta_android_link: config.beta_download_link_android,
+            alpha_android_link: config.alpha_download_link_android
         };
     });
     return [latest_version_info, latest_android_json];
@@ -206,8 +210,19 @@ const server = http.createServer((req, res) => {
     else if (url_info.pathname === "/api/app/download/apk") {
         latest_android_json.then(json => {
             res.statusCode = 301;
-            res.setHeader("location", json.android_link);
-            res.end(`Download BFChain v${json.version}`);
+            const channel = url_info.query.channel;
+            let android_link = json.android_link;
+            let version = json.version;
+            if (channel === "beta") {
+                android_link = json.beta_android_link;
+                version = json.beta_version;
+            }
+            else if (channel === "alpha") {
+                android_link = json.alpha_android_link;
+                version = json.alpha_version;
+            }
+            res.setHeader("location", android_link);
+            res.end(`Download BFChain v${version}`);
         });
         return;
     }
