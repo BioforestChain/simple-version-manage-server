@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.200413.0.json"],
+  "changelogs": [
+    "Fixed some issues with blockchain transfer events",
+    "We recommend you clear the original data and resynchronize"
+  ]
+}

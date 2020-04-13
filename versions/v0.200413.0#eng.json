@@ -1,0 +1,9 @@
+{
+  "@extends": ["./v0.200413.0.json"],
+  "changelogs": [
+    "Full-Node on mobile is now open for testing",
+    "Improved stability of blockchain network and synchronization",
+    "Improved usability of blockchain transfer events",
+    "Compatible with more models"
+  ]
+}
