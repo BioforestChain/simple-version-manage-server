@@ -1,0 +1,28 @@
+{
+  "version": "0.200415.0",
+
+  "android_version": "0.200415.2",
+  "android_beta_version": "0.200415.2",
+  "android_alpha_version": "0.200415.3",
+  "beta_android_version": "0.200415.2",
+  "alpha_android_version": "0.200415.3",
+
+  "download_link_android": "https://www.bfchain.org/PROD/BFT-release-0.200415.2.apk",
+  "beta_download_link_android": "https://www.bfchain.org/PROD/BFT-release-0.200415.2.apk",
+  "alpha_download_link_android": "https://www.bfchain.org/test/BFT-release-0.200415.3.apk",
+
+  "ios_version": "0.1.6",
+  "ios_rc_version": "0.1.6",
+  "hotreload_version": "",
+  "download_link_ios": "https://bfchain-cdn.bnqkl.cn/bft-ios-v0.1.6.ipa",
+  "download_link_ios_plist": "itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.bfchain.org%2Fapi%2Fapp%2Fversion%2Flatest%3Ftarget%3Dios-plist",
+  "download_link_web": "https://www.bfchain.org/",
+  "share_link": "https://www.bfchain.org/",
+  "share_image_url": "http://bfchain-cdn.bnqkl.cn/share_img.png",
+  "create_time": "2020-04-15T15:30:04.403Z",
+  "apk_size": 139441968,
+  "beta_apk_size": 139441968,
+  "alpha_apk_size": 139441968,
+  "plist_size": 167619232,
+  "@extends": "./baseinfo.production.json"
+}
