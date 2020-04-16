@@ -1,0 +1,19 @@
+{
+  "version": "0.200416.0",
+
+  "android_version": "0.200416.1",
+  "android_beta_version": "0.200416.1",
+  "android_alpha_version": "0.200416.0",
+  "beta_android_version": "0.200416.1",
+  "alpha_android_version": "0.200416.0",
+
+  "download_link_android": "https://www.bfchain.org/PROD/BFT-release-0.200416.1.apk",
+  "beta_download_link_android": "https://www.bfchain.org/PROD/BFT-release-0.200416.1.apk",
+  "alpha_download_link_android": "https://www.bfchain.org/test/BFT-release-0.200416.0.apk",
+
+  "create_time": "2020-04-16T14:39:13.460Z",
+  "apk_size": 131847946,
+  "beta_apk_size": 131847946,
+  "alpha_apk_size": 131847946,
+  "@extends": "./v0.200415.0.json"
+}

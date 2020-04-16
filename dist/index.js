@@ -89,7 +89,7 @@ function getLatestInfo() {
                             content[key.slice(channelPrefix.length)] = content[key];
                         }
                     }
-                    console.log(content);
+                    // console.log(content);
                     /// 保存内容
                     res = JSON.stringify(content, null, 2);
                     map.set(key, res);
@@ -139,7 +139,8 @@ function readConfig(filepath, version_info) {
         }
         if (exts instanceof Array) {
             const dirname = path.dirname(filepath);
-            config = Object.assign(config, ...exts.map((ext) => readConfig(path.resolve(dirname, ext), version_info)));
+            const extendsMix = Object.assign({}, ...exts.map((ext) => readConfig(path.resolve(dirname, ext), version_info)));
+            config = Object.assign(extendsMix, config);
         }
         return config;
     }
@@ -164,8 +165,9 @@ function exportLatestInfo() {
     return [latest_version_info, latest_android_json];
 }
 let [latest_version_info, latest_android_json] = exportLatestInfo();
-fs.watch(versions_folder, () => {
-    let [latest_version_info, latest_android_json] = exportLatestInfo();
+fs.watch(versions_folder, (e, filename) => {
+    console.log("changed", filename);
+    [latest_version_info, latest_android_json] = exportLatestInfo();
 });
 /*MOKE DATA*/
 const package_json = require("../package.json");
