@@ -35,10 +35,10 @@ function getLatestInfo() {
                     filepath,
                     version,
                     lang,
-                    versionNumber: helper_1.versionToNumber(version)
+                    versionNumber: helper_1.versionToNumber(version),
                 };
             }
-        })))).filter(v => v);
+        })))).filter((v) => v);
         version_info_list.sort((a, b) => {
             return b.versionNumber - a.versionNumber;
         });
@@ -54,26 +54,51 @@ function getLatestInfo() {
             }
         }
         return Object.assign(map, {
-            getByLang(lang) {
-                var res = map.get(lang);
+            parseOptions(json, opts) {
+                const content = JSON.parse(json);
+                for (let key in content) {
+                }
+            },
+            getByOptions(opts) {
+                const { lang = "eng", channel = "stable" } = opts;
+                const key = `${lang}/${channel}`;
+                console.log(key);
+                let res = map.get(key);
                 if (!res) {
-                    if (lang == "zh-Hant") {
-                        res = map.get("zh-Hans");
-                        if (res) {
-                            res = helper_1.simpleToTradition(res);
-                            map.set(lang, res);
+                    /// 先获取出对应语言版本的信息
+                    let langRes = map.get(lang);
+                    if (!langRes) {
+                        if (lang == "zh-Hant") {
+                            langRes = map.get("zh-Hans");
+                            if (langRes) {
+                                langRes = helper_1.simpleToTradition(langRes);
+                                map.set(lang, langRes);
+                            }
                         }
                     }
-                }
-                if (!res) {
-                    res = this.getDefault();
-                    map.set(lang, res);
+                    if (!langRes) {
+                        langRes = this.getDefault();
+                        map.set(lang, langRes);
+                    }
+                    /// 解析出对用channel版本的信息
+                    const channelPrefix = channel + "_";
+                    const content = JSON.parse(langRes);
+                    for (let key in content) {
+                        if (key.startsWith(channelPrefix)) {
+                            // console.log(key, key.slice(channelPrefix.length), content[key]);
+                            content[key.slice(channelPrefix.length)] = content[key];
+                        }
+                    }
+                    console.log(content);
+                    /// 保存内容
+                    res = JSON.stringify(content, null, 2);
+                    map.set(key, res);
                 }
                 return res;
             },
             getDefault() {
                 return map.get("eng") || map.get("zh-Hans") || map.values().next().value;
-            }
+            },
         });
     });
 }
@@ -92,9 +117,9 @@ function readConfig(filepath, version_info) {
                 IF: "@IF:",
                 get vm_context() {
                     return this._vm_context || (this._vm_context = vm.createContext(version_info));
-                }
+                },
             };
-            const smart_mix = config => {
+            const smart_mix = (config) => {
                 for (let key in config) {
                     const sub_config = config[key];
                     if (typeof sub_config === "object" && sub_config) {
@@ -114,7 +139,7 @@ function readConfig(filepath, version_info) {
         }
         if (exts instanceof Array) {
             const dirname = path.dirname(filepath);
-            config = Object.assign(config, ...exts.map(ext => readConfig(path.resolve(dirname, ext), version_info)));
+            config = Object.assign(config, ...exts.map((ext) => readConfig(path.resolve(dirname, ext), version_info)));
         }
         return config;
     }
@@ -125,7 +150,7 @@ function readConfig(filepath, version_info) {
 }
 function exportLatestInfo() {
     const latest_version_info = getLatestInfo();
-    const latest_android_json = latest_version_info.then(l => {
+    const latest_android_json = latest_version_info.then((l) => {
         const config = JSON.parse(l.getDefault());
         return {
             version: config.version,
@@ -133,7 +158,7 @@ function exportLatestInfo() {
             alpha_version: config.alpha_version,
             android_link: config.download_link_android,
             beta_android_link: config.beta_download_link_android,
-            alpha_android_link: config.alpha_download_link_android
+            alpha_android_link: config.alpha_download_link_android,
         };
     });
     return [latest_version_info, latest_android_json];
@@ -146,7 +171,7 @@ fs.watch(versions_folder, () => {
 const package_json = require("../package.json");
 const target_mime_map = new Map([
     ["ios-plist", "application/octet-stream"],
-    ["ios-plist-rc", "application/octet-stream"]
+    ["ios-plist-rc", "application/octet-stream"],
 ]);
 /*API SERVER*/
 const server = http.createServer((req, res) => {
@@ -156,9 +181,11 @@ const server = http.createServer((req, res) => {
     res.setHeader("Access-Control-Allow-Methods", "GET");
     if (url_info.pathname === "/api/app/version/latest") {
         const lang = query.lang;
+        const channel = query.channel;
+        // const version = query.version as string | undefined;
         res.setHeader("Content-Type", "application/json");
-        latest_version_info.then(l => {
-            const config_json = l.getByLang(lang);
+        latest_version_info.then((l) => {
+            const config_json = l.getByOptions({ lang, channel });
             if (query.target) {
                 const target = query.target;
                 const target_tmp_file_path = path.join(__dirname, "../assets/target-template/", `${target}.tmp`);
@@ -194,12 +221,12 @@ const server = http.createServer((req, res) => {
         // 	console.log(data);
         // });
         const updater = child_process_1.spawn("git", ["pull"], {
-            cwd: path.resolve(__dirname, "../")
+            cwd: path.resolve(__dirname, "../"),
         });
-        updater.stdout.on("data", msg => {
+        updater.stdout.on("data", (msg) => {
             res.write(msg);
         });
-        updater.stderr.on("data", data => {
+        updater.stderr.on("data", (data) => {
             res.write(data);
         });
         updater.on("close", () => {
@@ -208,7 +235,7 @@ const server = http.createServer((req, res) => {
         return;
     }
     else if (url_info.pathname === "/api/app/download/apk") {
-        latest_android_json.then(json => {
+        latest_android_json.then((json) => {
             res.statusCode = 301;
             const channel = url_info.query.channel;
             let android_link = json.android_link;
