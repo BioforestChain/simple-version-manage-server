@@ -1,0 +1,14 @@
+{
+  "version": "0.200417.0",
+
+  "android_alpha_version": "0.200417.0",
+  "alpha_android_version": "0.200417.0",
+
+  "alpha_download_link_android": "https://www.bfchain.org/test/56d12aa41aee7e5f7e32717fd993dc212502958c3d8fe504e755ff1817e5ed1a.apk",
+
+  "create_time": "2020-04-17T10:01:08.438Z",
+  "apk_size": 131847946,
+  "beta_apk_size": 131847946,
+  "alpha_apk_size": 131847946,
+  "@extends": "./v0.200416.0.json"
+}
