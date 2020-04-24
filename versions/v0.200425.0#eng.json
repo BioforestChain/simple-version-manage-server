@@ -1,0 +1,10 @@
+{
+  "@extends": ["./v0.200425.0.json"],
+  "changelogs": [
+    "Upgraded connectivity reliability between mobile nodes",
+    "Blockchain browser rendering performance upgraded",
+    "Improved transaction success rate in the service node model",
+    "Opened up red packet events and increased red packet capacity",
+    "A new node detail view has been added"
+  ]
+}
