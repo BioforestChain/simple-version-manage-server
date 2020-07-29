@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.200729.2.json"],
+  "changelogs": [
+    "Open vote feature",
+    "Faster Blockchain synchronization",
+    "Improve the user experience of red envelope feature"
+  ]
+}
