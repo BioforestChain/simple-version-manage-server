@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.200927.0.json"],
+  "changelogs": [
+    "Improve the experience and stability of addresses of interest",
+    "Improved synchronization stability",
+    "Improved stability of node connections"
+  ]
+}
