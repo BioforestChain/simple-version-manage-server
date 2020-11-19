@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.201119.3.json"],
+  "changelogs": [
+    "Issuance and destruction of Assets",
+    "Transfer of Assets"
+  ]
+}
