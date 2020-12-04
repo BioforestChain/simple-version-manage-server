@@ -1,6 +1,6 @@
 {
   "@extends": ["./v0.201203.0.json"],
   "changelogs": [
-    "TPoW break through"
+    "release the function of Asset Exchange"
   ]
 }
