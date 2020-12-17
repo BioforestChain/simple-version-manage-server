@@ -1,0 +1,19 @@
+{
+  "version": "0.201217.2",
+
+  "android_version": "0.201217.2",
+  "android_beta_version": "0.201217.2",
+  "android_alpha_version": "0.201217.2",
+  "beta_android_version": "0.201217.2",
+  "alpha_android_version": "0.201217.2",
+  
+  "download_link_android": "https://www.bfchain.org/PROD/86d7b685ece5d3ed4eab6b64200f2074d226808579a069067bfc594d1ce62043.apk",
+  "beta_download_link_android": "https://www.bfchain.org/PROD/86d7b685ece5d3ed4eab6b64200f2074d226808579a069067bfc594d1ce62043.apk",
+  "alpha_download_link_android": "https://www.bfchain.org/PROD/d6a387d3a5594bc656e1c646f63bc9ccf2d0b452d44630ca25173bdd8bd6e8fc.apk",
+
+  "create_time": "2020-12-17T12:30:34.355Z",
+  "apk_size": 116524609,
+  "beta_apk_size": 116524609,
+  "alpha_apk_size": 116524609,
+  "@extends": "./v0.200415.0.json"
+}

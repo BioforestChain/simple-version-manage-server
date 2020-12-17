@@ -1,0 +1,6 @@
+{
+  "@extends": ["./v0.201217.2.json"],
+  "changelogs": [
+    "release the function of Asset Exchange"
+  ]
+}
