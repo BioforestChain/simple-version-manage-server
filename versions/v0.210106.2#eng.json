@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210106.2.json"],
+  "changelogs": [
+    "Optimized peer replay",
+    "New Feature: Peer Manager"
+  ]
+}
