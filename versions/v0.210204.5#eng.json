@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210204.5.json"],
+  "changelogs": [
+    "New Feature: Public exchange",
+    "Optimize peer scanning",
+    "Add patch system"
+  ]
+}
