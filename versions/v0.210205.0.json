@@ -1,0 +1,12 @@
+{
+  "version": "0.210205.0",
+
+  "android_version": "0.210205.0",
+  "android_alpha_version": "0.210205.0",
+  "alpha_android_version": "0.210205.0",
+
+  "alpha_download_link_android": "https://www.bfchain.org/PROD/8d08dfa758d239a4170ca4cbb1b095e8b8e36e46e98733beb4218cf4333fb397.apk",
+
+  "create_time": "2021-02-05T09:05:22.376Z",
+  "@extends": "./v0.210204.5.json"
+}
