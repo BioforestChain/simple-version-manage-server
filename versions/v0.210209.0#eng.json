@@ -1,3 +1,4 @@
 {
-  "@extends": ["./v0.210205.0.json"]
+  "@extends": ["./v0.210209.0.json"],
+  "changelogs": ["Optimize the experience of using the node manager"]
 }
