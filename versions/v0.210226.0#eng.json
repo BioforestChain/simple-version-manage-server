@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210226.0.json"],
+  "changelogs": [
+    "Improve the calculation speed of address balance",
+    "Improve the experience of The-Public-Exchange"
+  ]
+}
