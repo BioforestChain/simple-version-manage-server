@@ -1,0 +1,9 @@
+{
+  "@extends": ["./v0.210305.0.json"],
+  "changelogs": [
+    "Improve the synchronization speed of my other assets",
+    "Fix some issues in \"My Transaction List\"",
+    "Improve the experience related to \"The Public Exchange\"",
+    "Fixes for some UI issues"
+  ]
+}
