@@ -1,0 +1,19 @@
+{
+  "version": "0.210319.0",
+
+  "android_version": "0.210319.0",
+  "android_beta_version": "0.210319.0",
+  "android_alpha_version": "0.210319.0",
+  "beta_android_version": "0.210319.0",
+  "alpha_android_version": "0.210319.0",
+
+  "download_link_android": "https://www.bfchain.org/PROD/d911cdd7022e445fc109bf629abf64ae82f455dd9813b338dc5ee0483deb2e6d.apk",
+  "beta_download_link_android": "https://www.bfchain.org/PROD/d911cdd7022e445fc109bf629abf64ae82f455dd9813b338dc5ee0483deb2e6d.apk",
+  "alpha_download_link_android": "https://www.bfchain.org/PROD/563fd083078fd5acd992454e53e6e160d0f606b61f24e7ef22e464d7c529e167.apk",
+
+  "create_time": "2021-03-19T12:55:41.413Z",
+  "apk_size": 120391590,
+  "beta_apk_size": 120391590,
+  "alpha_apk_size": 120391590,
+  "@extends": "./v0.210204.5.json"
+}
