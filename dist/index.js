@@ -1,105 +1,97 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const http = require("http");
 const fs = require("fs");
-const url = require("url");
 const path = require("path");
-const Bluebird = require("bluebird");
 const vm = require("vm");
 const child_process_1 = require("child_process");
 const helper_1 = require("./helper");
 const versions_folder = __dirname + "/../versions";
-function getLatestInfo() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const filename_list = (yield Bluebird.promisify(fs.readdir)(versions_folder));
-        const version_info_list = (yield Promise.all(filename_list.map((filename) => __awaiter(this, void 0, void 0, function* () {
-            if (!(filename.startsWith("v") && filename.indexOf("#") !== -1 && filename.endsWith(".json"))) {
-                return;
-            }
-            const filepath = path.join(versions_folder, filename);
-            const file_lstat = yield Bluebird.promisify(fs.lstat)(filepath);
-            if (file_lstat.isFile()) {
-                const file_base_info = path.parse(filename).name.split("#");
-                const version = file_base_info[0];
-                const lang = file_base_info[1];
-                return {
-                    filepath,
-                    version,
-                    lang,
-                    versionNumber: helper_1.versionToNumber(version),
-                };
-            }
-        })))).filter((v) => v);
-        version_info_list.sort((a, b) => {
-            return b.versionNumber - a.versionNumber;
-        });
-        const map = new Map();
-        const latest_versionNumber = version_info_list[0].versionNumber;
-        for (let i = 0; i < version_info_list.length; i += 1) {
-            const item = version_info_list[i];
-            if (item.versionNumber === latest_versionNumber) {
-                map.set(item.lang, JSON.stringify(readConfig(item.filepath, item), null, 2));
-            }
-            else {
-                break;
-            }
+async function getLatestInfo() {
+    const filename_list = await fs.promises.readdir(versions_folder);
+    const version_info_list = [];
+    await Promise.all(filename_list.map(async (filename) => {
+        if (!(filename.startsWith("v") &&
+            filename.indexOf("#") !== -1 &&
+            filename.endsWith(".json"))) {
+            return;
         }
-        return Object.assign(map, {
-            parseOptions(json, opts) {
-                const content = JSON.parse(json);
+        const filepath = path.join(versions_folder, filename);
+        const file_lstat = await fs.promises.lstat(filepath);
+        if (file_lstat.isFile()) {
+            const file_base_info = path.parse(filename).name.split("#");
+            const version = file_base_info[0];
+            const lang = file_base_info[1];
+            version_info_list.push({
+                filepath,
+                version,
+                lang,
+                versionNumber: helper_1.versionToNumber(version),
+            });
+        }
+    }));
+    version_info_list.sort((a, b) => {
+        return b.versionNumber - a.versionNumber;
+    });
+    const map = new Map();
+    const latest_versionNumber = version_info_list[0].versionNumber;
+    for (let i = 0; i < version_info_list.length; i += 1) {
+        const item = version_info_list[i];
+        if (item.versionNumber === latest_versionNumber) {
+            map.set(item.lang, JSON.stringify(readConfig(item.filepath, item), null, 2));
+        }
+        else {
+            break;
+        }
+    }
+    return Object.assign(map, {
+        parseOptions(json, opts) {
+            const content = JSON.parse(json);
+            for (let key in content) {
+            }
+        },
+        getByOptions(opts) {
+            const { lang = "eng", channel = "stable" } = opts;
+            const key = `${lang}/${channel}`;
+            console.log(key);
+            let res = map.get(key);
+            if (!res) {
+                /// 先获取出对应语言版本的信息
+                let langRes = map.get(lang);
+                if (!langRes) {
+                    if (lang == "zh-Hant") {
+                        langRes = map.get("zh-Hans");
+                        if (langRes) {
+                            langRes = helper_1.simpleToTradition(langRes);
+                            map.set(lang, langRes);
+                        }
+                    }
+                }
+                if (!langRes) {
+                    langRes = this.getDefault();
+                    map.set(lang, langRes);
+                }
+                /// 解析出对用channel版本的信息
+                const channelPrefix = channel + "_";
+                const content = JSON.parse(langRes);
                 for (let key in content) {
+                    if (key.startsWith(channelPrefix)) {
+                        // console.log(key, key.slice(channelPrefix.length), content[key]);
+                        content[key.slice(channelPrefix.length)] = content[key];
+                    }
                 }
-            },
-            getByOptions(opts) {
-                const { lang = "eng", channel = "stable" } = opts;
-                const key = `${lang}/${channel}`;
-                console.log(key);
-                let res = map.get(key);
-                if (!res) {
-                    /// 先获取出对应语言版本的信息
-                    let langRes = map.get(lang);
-                    if (!langRes) {
-                        if (lang == "zh-Hant") {
-                            langRes = map.get("zh-Hans");
-                            if (langRes) {
-                                langRes = helper_1.simpleToTradition(langRes);
-                                map.set(lang, langRes);
-                            }
-                        }
-                    }
-                    if (!langRes) {
-                        langRes = this.getDefault();
-                        map.set(lang, langRes);
-                    }
-                    /// 解析出对用channel版本的信息
-                    const channelPrefix = channel + "_";
-                    const content = JSON.parse(langRes);
-                    for (let key in content) {
-                        if (key.startsWith(channelPrefix)) {
-                            // console.log(key, key.slice(channelPrefix.length), content[key]);
-                            content[key.slice(channelPrefix.length)] = content[key];
-                        }
-                    }
-                    // console.log(content);
-                    /// 保存内容
-                    res = JSON.stringify(content, null, 2);
-                    map.set(key, res);
-                }
-                return res;
-            },
-            getDefault() {
-                return map.get("eng") || map.get("zh-Hans") || map.values().next().value;
-            },
-        });
+                // console.log(content);
+                /// 保存内容
+                res = JSON.stringify(content, null, 2);
+                map.set(key, res);
+            }
+            return res;
+        },
+        getDefault() {
+            return (map.get("eng") ||
+                map.get("zh-Hans") ||
+                map.values().next().value);
+        },
     });
 }
 function readConfig(filepath, version_info) {
@@ -115,8 +107,10 @@ function readConfig(filepath, version_info) {
             const helper = {
                 /**条件语句*/
                 IF: "@IF:",
+                _vm_context: undefined,
                 get vm_context() {
-                    return this._vm_context || (this._vm_context = vm.createContext(version_info));
+                    return (this._vm_context ||
+                        (this._vm_context = vm.createContext(version_info)));
                 },
             };
             const smart_mix = (config) => {
@@ -177,21 +171,21 @@ const target_mime_map = new Map([
 ]);
 /*API SERVER*/
 const server = http.createServer((req, res) => {
-    const url_info = url.parse(req.url, true);
-    const { query } = url_info;
+    const url_info = new URL(req.url || "", "http://localhost");
+    const { searchParams } = url_info;
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET");
     if (url_info.pathname === "/api/app/version/latest") {
-        const lang = query.lang;
-        const channel = query.channel;
+        const lang = searchParams.get("lang");
+        const channel = searchParams.get("channel");
         // const version = query.version as string | undefined;
         res.setHeader("Content-Type", "application/json");
         latest_version_info.then((l) => {
             const config_json = l.getByOptions({ lang, channel });
-            if (query.target) {
-                const target = query.target;
+            const target = searchParams.get("target");
+            if (target) {
                 const target_tmp_file_path = path.join(__dirname, "../assets/target-template/", `${target}.tmp`);
-                fs.readFile(target_tmp_file_path, { encoding: "UTF-8" }, (err, tmp_content) => {
+                fs.readFile(target_tmp_file_path, "UTF-8", (err, tmp_content) => {
                     if (err) {
                         res.statusCode = 404;
                         res.end();
@@ -239,7 +233,7 @@ const server = http.createServer((req, res) => {
     else if (url_info.pathname === "/api/app/download/apk") {
         latest_android_json.then((json) => {
             res.statusCode = 301;
-            const channel = url_info.query.channel;
+            const channel = searchParams.get("channel");
             let android_link = json.android_link;
             let version = json.version;
             if (channel === "beta") {

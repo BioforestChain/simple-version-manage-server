@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.traditionToSimple = exports.simpleToTradition = exports.versionToNumber = void 0;
 function versionToNumber(version) {
     const vcodes = version.replace("v", "").split(".");
     /* 一共分三位：
