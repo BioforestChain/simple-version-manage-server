@@ -1,5 +1,5 @@
 {
-  "@extends": ["./v0.210401.0.json"],
+  "@extends": ["./v0.210401.1.json"],
   "changelogs": [
     "Fix the problem of synchronization account error caused by destroying assets",
     "Fix some exceptions of synchronization"
