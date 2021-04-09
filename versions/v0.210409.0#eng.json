@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210409.0.json"],
+  "changelogs": [
+    "Optimize node interconnection at the network layer",
+    "Improved caching of interest types across the network"
+  ]
+}
