@@ -2,6 +2,7 @@
   "@extends": ["./v0.210416.1.json"],
   "changelogs": [
     "Reduced memory useage for the network framework",
-    "Improve synchronization correctness"
+    "Improve synchronization correctness",
+    "Improved performance and readability of the logging system"
   ]
 }
