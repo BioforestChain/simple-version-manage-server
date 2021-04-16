@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210416.1.json"],
+  "changelogs": [
+    "Reduced memory useage for the network framework",
+    "Improve synchronization correctness"
+  ]
+}
