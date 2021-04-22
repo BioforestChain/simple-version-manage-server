@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210420.0.json"],
+  "changelogs": [
+    "'Peer Management' adds reboot function",
+    "Improve synchronization correctness",
+    "Improved the performance of 'My Transactions'"
+  ]
+}
