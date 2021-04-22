@@ -1,5 +1,5 @@
 {
-  "@extends": ["./v0.210420.0.json"],
+  "@extends": ["./v0.210422.0.json"],
   "changelogs": [
     "'Peer Management' adds reboot function",
     "Improve synchronization correctness",
