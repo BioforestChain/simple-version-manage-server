@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210507.2.json"],
+  "changelogs": [
+    "Built-in offline Critical-Checkpoint-Data(Round 3062)",
+    "Improve database performance and stability",
+    "Experience optimization In 'Peer Management', 'Equity Exchange', 'Equity Transfer', 'Red Envelope'"
+  ]
+}
