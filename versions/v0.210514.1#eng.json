@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210514.1.json"],
+  "changelogs": [
+    "New \"My Transactions\" user interface",
+    "Improve the basic experience of the Peer-Manager",
+    "Built-in offline Critical-Checkpoint-Data(Round 3141)"
+  ]
+}
