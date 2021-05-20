@@ -1,8 +1,7 @@
 {
   "@extends": ["./v0.210520.0.json"],
   "changelogs": [
-    "New \"My Transactions\" user interface",
-    "Improve the basic experience of the Peer-Manager",
-    "Built-in offline Critical-Checkpoint-Data(Round 3141)"
+    "✨ Peer-Management add new feature: Peer-Authorization",
+    "🐛 Fix the error of showing historical voting transactions in My-Transasction/Confirmed"
   ]
 }
