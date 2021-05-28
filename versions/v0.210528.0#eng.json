@@ -1,0 +1,11 @@
+{
+  "@extends": ["./v0.210528.0.json"],
+  "changelogs": [
+    "✨ New mailbox template for Peer-Authorization",
+    "⚡️ Encryption algorithm upgrades to dramatically increase performance and improve power consumption",
+    "♻️ Improve the feature of multi-assets query",
+    "♻️ Improve the experience of the Main-Password-Inputer page",
+    "🐛 Fix the bug of clash by handling network fluctuation",
+    "🐛 Fix the bug of Red-Envelope decryption failure"
+  ]
+}
