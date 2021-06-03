@@ -1,0 +1,9 @@
+{
+  "@extends": [
+    "./v0.210603.0.json"
+  ],
+  "changelogs": [
+    "💪 Improve the compatibility of the new \"Secure Password\" algorithm with the old one",
+    "🐛 Some experience improvements and bug fixes related to the \"Assets Exchange\""
+  ]
+}
