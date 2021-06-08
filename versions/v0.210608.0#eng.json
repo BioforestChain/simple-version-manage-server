@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210528.0.json"],
+  "changelogs": [
+    "✨ New Feature: \"My Peers\" (in Blockchain Network Settings)",
+    "✨ New Feature: \"Peer Management\" For Mining-Machine-Management"
+  ]
+}
