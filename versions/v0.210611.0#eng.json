@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210611.0.json"],
+  "changelogs": [
+    "✨ You can manually inject peer's ip to stabilize your distributed network",
+    "🐛 Repair the problem of Peer-Manager which could not modify the Second-Password correctly",
+    "💫 Daily optimization of usage experience"
+  ]
+}
