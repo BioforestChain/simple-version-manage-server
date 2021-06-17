@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210617.0.json"],
+  "changelogs": [
+    "✨ Network-Peers can now disconnect all peers and reconnect randomly, which can make the network more \"DISTRIBUTION\"",
+    "✨ More user-friendly interface and detailed information when importing Checkpoint"
+  ]
+}
