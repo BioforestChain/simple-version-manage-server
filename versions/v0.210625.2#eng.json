@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210625.2.json"],
+  "changelogs": [
+    "💫 Peer-Manager can now more clearly handle some of the issues that arise when a second-password is changed",
+    "🌐 P2P networks are now more stable",
+    "♻️ Optimized some synchronization network-related consensus to increase the stability of the entire network"
+  ]
+}
