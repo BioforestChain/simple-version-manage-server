@@ -1,0 +1,8 @@
+{
+  "@extends": ["./v0.210702.0.json"],
+  "changelogs": [
+    "⚡️ Optimize the transaction fee to improve the speed of confirmed by blockchain",
+    "⚡️ Optimize the algorithm of peer connection to improve the stability of the network",
+    "⚡️ Optimize the transmission of blockchain data to save traffic"
+  ]
+}
