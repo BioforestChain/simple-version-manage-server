@@ -1,0 +1,10 @@
+{
+  "@extends": ["./v0.210722.0.json"],
+  "changelogs": [
+    "⚡️ Optimize algorithms for peer connectivity to reduce energy consumption and improve network performance",
+    "💫 Now you can manually set the auto vote fee",
+    "🐛 After checkpoint imported, the history transactions were invisible, so we fixed it",
+    "🚸 Fixed some minor issues with Peer-Manager and improved the user experience",
+    "📦️ Update the built-in offline checkpoint data to 3882 rounds"
+  ]
+}
