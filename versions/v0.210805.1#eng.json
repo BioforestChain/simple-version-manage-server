@@ -1,0 +1,9 @@
+{
+  "@extends": ["./v0.210805.1.json"],
+  "changelogs": [
+    "⚡️ Optimize algorithms for peer connectivity to reduce energy consumption and improve network performance",
+    "⚡️ The rigor of data exchange between peers is reinforced, for which we can make more optimizations, which are not compatible with the old version of app/peer",
+    "⚡️ Significantly reduced traffic usage based on new optimizations",
+    "📦️ Update the built-in offline checkpoint data to 4041 rounds"
+  ]
+}
