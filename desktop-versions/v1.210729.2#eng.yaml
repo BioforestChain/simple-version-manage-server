@@ -1,0 +1,8 @@
+version: 1.210729.2
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/bfchain-desktop%20Setup%201.210729.2.exe
+    sha512: 4IVFZdZLHbqozUGOss7GjsW1XUxGsUvUqUAyqhUf5Z3XygM+7HL0T1+XHe7H3UkU1DDXDfyif4bL4vaqKjQ2jA==
+    size: 153236216
+path: bfchain-desktop Setup 1.210729.2.exe
+sha512: 4IVFZdZLHbqozUGOss7GjsW1XUxGsUvUqUAyqhUf5Z3XygM+7HL0T1+XHe7H3UkU1DDXDfyif4bL4vaqKjQ2jA==
+releaseDate: '2021-08-06T08:15:09.758Z'
