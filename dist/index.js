@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
             const target = searchParams.get("target");
             if (target) {
                 const target_tmp_file_path = path.join(__dirname, "../assets/target-template/", `${target}.tmp`);
-                fs.readFile(target_tmp_file_path, "UTF-8", (err, tmp_content) => {
+                fs.readFile(target_tmp_file_path, "utf-8", (err, tmp_content) => {
                     if (err) {
                         res.statusCode = 404;
                         res.end();
@@ -104,14 +104,36 @@ const server = http.createServer((req, res) => {
         });
         return;
     }
-    else if (url_info.pathname === "/api/desktop/version/latest" ||
-        url_info.pathname === "/api/desktop/version/latest.yml") {
-        const lang = searchParams.get("lang");
-        const channel = searchParams.get("channel");
+    else if (url_info.pathname.startsWith("/api/desktop/version/latest")
+    // &&  url_info.pathname.endsWith(".yml")
+    ) {
+        const sign = searchParams.get("web") || undefined;
+        if (sign) {
+            res.setHeader("Content-Type", "application/json");
+            latest_desktop_version_info.then(l => {
+                const result = l.getAllVersionInfo();
+                res.end(JSON.stringify(result));
+            });
+            return;
+        }
+        let lastIndex = url_info.pathname.lastIndexOf("/");
+        let firstIndex = url_info.pathname.indexOf("latest");
+        let url = url_info.pathname.substr(0, lastIndex).substr(firstIndex + 6);
+        const paramList = url.split("/");
+        const paramMap = new Map();
+        paramList.forEach((param) => {
+            const p = param.split("_");
+            paramMap.set(p[0], p[1]);
+        });
+        const lang = paramMap.get("lang");
+        const channel = paramMap.get("channel");
+        const platform = paramMap.get("platform");
+        const arch = (paramMap.get("arch") || searchParams.get("arch"));
+        const type = paramMap.get("type");
         // const version = query.version as string | undefined;
         res.setHeader("Content-Type", "application/json");
         latest_desktop_version_info.then((l) => {
-            const config_yaml = l.getByOptions({ lang, channel });
+            const config_yaml = l.getByOptions({ lang, channel, platform, arch });
             res.end(config_yaml);
         });
         return;
