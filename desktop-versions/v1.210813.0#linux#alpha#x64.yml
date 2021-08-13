@@ -1,0 +1,12 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/1c1621b3996aeee5ab5c287ce4e34dc7d3bd27fd67475e321c04902102d4bc96.AppImage
+    sha512: 50gdCBRu+rCzlwtQRdwXPh+8GK2PPThbjY3dtfenEW7Yuh6t00yTWUyeZQDqvdh/bCcPqI1dx1GcvEP5R4vlpg==
+    size: 193085064
+    blockMapSize: 200348
+path: bfchain-desktop-1.210813.0.AppImage
+sha512: 50gdCBRu+rCzlwtQRdwXPh+8GK2PPThbjY3dtfenEW7Yuh6t00yTWUyeZQDqvdh/bCcPqI1dx1GcvEP5R4vlpg==
+releaseDate: 2021-08-13T12:26:49.984Z
+platform: linux
+channel: alpha
+arch: x64

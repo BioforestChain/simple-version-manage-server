@@ -1,0 +1,12 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/381d39a43a684048b83026ccc2c4437a7d7d92635d36c6c8f5d216e74fb9dc6b.zip
+    sha512: LHfdmJ55TqbvLPfCTsNh/paujLVtHi/PxYgsCEtRU7SAl+g0plspQQYrBJ0U1nIDPzIZm8ZM1+y3YhFtT2tpsQ==
+    size: 348895284
+    blockMapSize: 362414
+path: bfchain-desktop-1.210813.0-mac.zip
+sha512: LHfdmJ55TqbvLPfCTsNh/paujLVtHi/PxYgsCEtRU7SAl+g0plspQQYrBJ0U1nIDPzIZm8ZM1+y3YhFtT2tpsQ==
+releaseDate: 2021-08-13T11:59:56.947Z
+platform: mac
+channel: beta
+arch: x64

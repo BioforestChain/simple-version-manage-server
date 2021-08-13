@@ -1,0 +1,11 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/20ce4f9e4955ba4cd5767989dfd612190f17ff5cce0e2547243e2d610fad7f47.exe
+    sha512: 74jEs3hR86eBwEO323zewmkQYbQO9g6qoZvyOAxq2Zdrlnms080PRycys8O67GD+mnfBYro/cXdfU0CaZP6I1g==
+    size: 168038501
+path: bfchain-desktop Setup 1.210813.0.exe
+sha512: 74jEs3hR86eBwEO323zewmkQYbQO9g6qoZvyOAxq2Zdrlnms080PRycys8O67GD+mnfBYro/cXdfU0CaZP6I1g==
+releaseDate: 2021-08-13T12:26:49.984Z
+platform: win
+channel: alpha
+arch: x64
