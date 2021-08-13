@@ -12,7 +12,7 @@ async function getLatestInfo() {
     const version_info_list = [];
     await Promise.all(filename_list.map(async (filename) => {
         if (!(filename.startsWith("v") &&
-            filename.endsWith(".yaml") &&
+            (filename.endsWith(".yaml") || filename.endsWith(".yml")) &&
             filename.includes("#"))) {
             return;
         }
@@ -87,8 +87,8 @@ async function getLatestInfo() {
         getByOptions(opts) {
             const { lang = "eng", channel = "stable", platform, arch, type } = opts;
             let fixPlatform = platform;
-            if (platform === 'darwin') {
-                fixPlatform = 'mac';
+            if (platform === "darwin") {
+                fixPlatform = "mac";
             }
             const key = `${lang}/${channel}/${arch}/${fixPlatform}`;
             console.log(key);

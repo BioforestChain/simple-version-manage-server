@@ -3,7 +3,12 @@ import * as path from "path";
 import * as YAML from "yaml";
 import { readConfig } from "./config-reader";
 import { versionToNumber, simpleToTradition } from "./helper";
-import { VersionInfoForDeskTop, ChannelType, PlatformType, ArchType } from "./index";
+import {
+  VersionInfoForDeskTop,
+  ChannelType,
+  PlatformType,
+  ArchType,
+} from "./index";
 
 export const versions_folder = __dirname + "/../desktop-versions";
 export async function getLatestInfo() {
@@ -15,7 +20,7 @@ export async function getLatestInfo() {
       if (
         !(
           filename.startsWith("v") &&
-          filename.endsWith(".yaml") &&
+          (filename.endsWith(".yaml") || filename.endsWith(".yml")) &&
           filename.includes("#")
         )
       ) {
@@ -42,7 +47,6 @@ export async function getLatestInfo() {
       }
     })
   );
-
 
   const map = new Map<string, string>();
   const latestVersionMap = new Map<string, number>();
@@ -75,9 +79,9 @@ export async function getLatestInfo() {
       download_link_desktop: info.files[0].url,
       channel: info.channel,
       arch: info.arch,
-    }
+    };
     return result;
-  }
+  };
   return Object.assign(map, {
     parseOptions(json: string, opts: InfoOptions) {
       const content = JSON.parse(json);
@@ -90,9 +94,9 @@ export async function getLatestInfo() {
       for (let info of versionInfo) {
         const platform = info.split("/")[3];
         if (platform === "mac") {
-          result.mac.push(formatVersionInfo(map.get(info)))
+          result.mac.push(formatVersionInfo(map.get(info)));
         } else if (platform === "win") {
-          result.win.push(formatVersionInfo(map.get(info)))
+          result.win.push(formatVersionInfo(map.get(info)));
         } else if (platform === "linux") {
           result.linux.push(formatVersionInfo(map.get(info)));
         }
@@ -102,8 +106,8 @@ export async function getLatestInfo() {
     getByOptions(opts: InfoOptions) {
       const { lang = "eng", channel = "stable", platform, arch, type } = opts;
       let fixPlatform = platform;
-      if (platform === 'darwin') {
-        fixPlatform = 'mac';
+      if (platform === "darwin") {
+        fixPlatform = "mac";
       }
       const key = `${lang}/${channel}/${arch}/${fixPlatform}`;
 
@@ -146,7 +150,7 @@ export async function getLatestInfo() {
       return (
         // map.get("eng") ||
         // map.get("zh-Hans") ||
-        (map.values().next().value as string)
+        map.values().next().value as string
       );
     },
   });
