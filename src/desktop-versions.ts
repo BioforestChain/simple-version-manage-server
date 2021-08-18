@@ -3,7 +3,12 @@ import * as path from "path";
 import * as YAML from "yaml";
 import { readConfig } from "./config-reader";
 import { versionToNumber, simpleToTradition } from "./helper";
-import { VersionInfoForDeskTop, ChannelType, PlatformType, ArchType, } from "./index";
+import {
+  VersionInfoForDeskTop,
+  ChannelType,
+  PlatformType,
+  ArchType,
+} from "./index";
 
 export const versions_folder = __dirname + "/../desktop-versions";
 export async function getLatestInfo() {
@@ -15,7 +20,7 @@ export async function getLatestInfo() {
       if (
         !(
           filename.startsWith("v") &&
-          filename.endsWith(".yaml") &&
+          (filename.endsWith(".yaml") || filename.endsWith(".yml")) &&
           filename.includes("#")
         )
       ) {
@@ -43,18 +48,17 @@ export async function getLatestInfo() {
     })
   );
 
-
   const map = new Map<string, string>();
-  const lastVersionMap = new Map<string, number>();
+  const latestVersionMap = new Map<string, number>();
 
   version_info_list.forEach((info) => {
     const key = `${info.lang}/${info.channel}/${info.arch}/${info.platform}`;
-    const oldVersion = lastVersionMap.get(key);
-    if (oldVersion === undefined || oldVersion < info.versionNumber) {
-      lastVersionMap.set(key, info.versionNumber);
+    const oldVersion = latestVersionMap.get(key);
+    if (oldVersion === undefined || info.versionNumber > oldVersion) {
+      latestVersionMap.set(key, info.versionNumber);
       map.set(key, YAML.stringify(readConfig(info.filepath, info)));
     }
-  })
+  });
 
   type InfoOptions = {
     lang?: string;
@@ -77,6 +81,7 @@ export async function getLatestInfo() {
       arch: info.arch,
       releaseDate: info.releaseDate,
       description: info.description,
+      adaptation: info.adaptation,
     }
     return result;
   }
@@ -87,7 +92,7 @@ export async function getLatestInfo() {
       }
     },
     getAllVersionInfo() {
-      let result = { mac: [] as any, linux: [] as any, win: [] as any };
+      let result = { mac: [] as any, win: [] as any, linux: [] as any };
       const versionInfo = map.keys();
       for (let info of versionInfo) {
         const platform = info.split("/")[3];
@@ -112,7 +117,7 @@ export async function getLatestInfo() {
       let res = map.get(key);
       if (!res) {
         return this.getDefault();
-        /// 先获取出对应语言版本的信息
+        // /// 先获取出对应语言版本的信息
         // let langRes = map.get(lang);
         // if (!langRes) {
         //   if (lang == "zh-Hant") {
@@ -147,7 +152,7 @@ export async function getLatestInfo() {
       return (
         // map.get("eng") ||
         // map.get("zh-Hans") ||
-        (map.values().next().value as string)
+        map.values().next().value as string
       );
     },
   });

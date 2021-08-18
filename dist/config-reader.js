@@ -12,7 +12,7 @@ function readConfig(filepath, ctx) {
         if (filepath.endsWith(".json")) {
             config = JSON.parse(config_str);
         }
-        else if (filepath.endsWith(".yaml")) {
+        else if (filepath.endsWith(".yaml") || filepath.endsWith(".yml")) {
             config = YAML.parse(config_str);
         }
         else {

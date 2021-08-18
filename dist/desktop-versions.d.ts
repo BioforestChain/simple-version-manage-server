@@ -9,8 +9,8 @@ export declare function getLatestInfo(): Promise<Map<string, string> & {
     }): void;
     getAllVersionInfo(): {
         mac: any;
-        linux: any;
         win: any;
+        linux: any;
     };
     getByOptions(opts: {
         lang?: string | undefined;
@@ -25,6 +25,9 @@ export declare function getLatestInfo(): Promise<Map<string, string> & {
         download_link_desktop: any;
         channel: any;
         arch: any;
+        releaseDate: any;
+        description: any;
+        adaptation: any;
     };
     getDefault(): string;
 }>;

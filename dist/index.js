@@ -105,9 +105,9 @@ const server = http.createServer((req, res) => {
         return;
     }
     else if (url_info.pathname.startsWith("/api/desktop/version/latest")
-    // && url_info.pathname.endsWith(".yml")
+    // &&  url_info.pathname.endsWith(".yml")
     ) {
-        const sign = searchParams.get("web") || undefined; //官网请求 带web标记
+        const sign = searchParams.get("web") || undefined;
         if (sign) {
             res.setHeader("Content-Type", "application/json");
             latest_desktop_version_info.then(l => {
@@ -116,7 +116,6 @@ const server = http.createServer((req, res) => {
             });
             return;
         }
-        //自动更新请求
         let lastIndex = url_info.pathname.lastIndexOf("/");
         let firstIndex = url_info.pathname.indexOf("latest");
         let url = url_info.pathname.substr(0, lastIndex).substr(firstIndex + 6);
@@ -142,7 +141,7 @@ const server = http.createServer((req, res) => {
     res.statusCode = 404;
     res.end();
 });
-server.listen(8182, () => {
+server.listen(8181, () => {
     console.log(server.address());
 });
 //# sourceMappingURL=index.js.map

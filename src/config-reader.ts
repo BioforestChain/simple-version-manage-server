@@ -9,7 +9,7 @@ export function readConfig(filepath: string, ctx: object): object {
     let config;
     if (filepath.endsWith(".json")) {
       config = JSON.parse(config_str);
-    } else if (filepath.endsWith(".yaml")) {
+    } else if (filepath.endsWith(".yaml") || filepath.endsWith(".yml")) {
       config = YAML.parse(config_str);
     } else {
       throw new TypeError(`read config ${path.extname(filepath)}`);

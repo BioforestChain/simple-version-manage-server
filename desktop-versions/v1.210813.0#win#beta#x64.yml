@@ -1,0 +1,13 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/76675b60bfa82777d871602d5bdd9e491303dbe6a7c2c59ccacfc5f23e3a1d5a.exe
+    sha512: GZ7DDk+MPMkv2vd3I4p45LC2sdNVehyLF0gGC0OF1k3LbUL9/GyEiqjgFrG8tfNxk4eSUxUF78iE3wZLm1METQ==
+    size: 288067823
+path: bfchain-desktop Setup 1.210813.0.exe
+sha512: GZ7DDk+MPMkv2vd3I4p45LC2sdNVehyLF0gGC0OF1k3LbUL9/GyEiqjgFrG8tfNxk4eSUxUF78iE3wZLm1METQ==
+releaseDate: 2021-08-13T11:59:56.947Z
+platform: win
+channel: beta
+arch: x64
+description: 用户参与度的共识机制,人人可获得奖励
+adaptation: Windows 7 及以上版本

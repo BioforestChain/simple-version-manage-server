@@ -1,6 +1,6 @@
 export declare type ChannelType = "alpha" | "beta" | "rc" | "stable";
 export declare type PlatformType = "mac" | "win" | "linux";
-export declare type ArchType = "x64" | "arm64";
+export declare type ArchType = "arm64" | "x64";
 export declare type VersionInfo = {
     filepath: string;
     version: string;

@@ -1,0 +1,14 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/ff4420caa5a2b0d6b1c77d0a864ebdb5540662603b3e5ee2d99f910a677de94f.AppImage
+    sha512: 480QjfqNOCVP//ansU5ow4ayySDY95YVSZYIoK+6qCt3vIR37gXIXSWiY8hcFiFWALGkdQTlCvUP/OJ+c++f8g==
+    size: 368250507
+    blockMapSize: 384671
+path: bfchain-desktop-1.210813.0.AppImage
+sha512: 480QjfqNOCVP//ansU5ow4ayySDY95YVSZYIoK+6qCt3vIR37gXIXSWiY8hcFiFWALGkdQTlCvUP/OJ+c++f8g==
+releaseDate: 2021-08-13T11:59:56.947Z
+platform: linux
+channel: beta
+arch: x64
+description: BFChain生物链林公有链，采用国产自主可控的区块链底层技术，是通往数字时代的通用型基础设施
+adaptation: Ubuntu 14.04及以上版本

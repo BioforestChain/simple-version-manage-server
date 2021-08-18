@@ -12,7 +12,7 @@ async function getLatestInfo() {
     const version_info_list = [];
     await Promise.all(filename_list.map(async (filename) => {
         if (!(filename.startsWith("v") &&
-            filename.endsWith(".yaml") &&
+            (filename.endsWith(".yaml") || filename.endsWith(".yml")) &&
             filename.includes("#"))) {
             return;
         }
@@ -37,12 +37,12 @@ async function getLatestInfo() {
         }
     }));
     const map = new Map();
-    const lastVersionMap = new Map();
+    const latestVersionMap = new Map();
     version_info_list.forEach((info) => {
         const key = `${info.lang}/${info.channel}/${info.arch}/${info.platform}`;
-        const oldVersion = lastVersionMap.get(key);
-        if (oldVersion === undefined || oldVersion < info.versionNumber) {
-            lastVersionMap.set(key, info.versionNumber);
+        const oldVersion = latestVersionMap.get(key);
+        if (oldVersion === undefined || info.versionNumber > oldVersion) {
+            latestVersionMap.set(key, info.versionNumber);
             map.set(key, YAML.stringify(config_reader_1.readConfig(info.filepath, info)));
         }
     });
@@ -58,6 +58,9 @@ async function getLatestInfo() {
             download_link_desktop: info.files[0].url,
             channel: info.channel,
             arch: info.arch,
+            releaseDate: info.releaseDate,
+            description: info.description,
+            adaptation: info.adaptation,
         };
         return result;
     };
@@ -68,7 +71,7 @@ async function getLatestInfo() {
             }
         },
         getAllVersionInfo() {
-            let result = { mac: [], linux: [], win: [] };
+            let result = { mac: [], win: [], linux: [] };
             const versionInfo = map.keys();
             for (let info of versionInfo) {
                 const platform = info.split("/")[3];
@@ -95,7 +98,7 @@ async function getLatestInfo() {
             let res = map.get(key);
             if (!res) {
                 return this.getDefault();
-                /// 先获取出对应语言版本的信息
+                // /// 先获取出对应语言版本的信息
                 // let langRes = map.get(lang);
                 // if (!langRes) {
                 //   if (lang == "zh-Hant") {
