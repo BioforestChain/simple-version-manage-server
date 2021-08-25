@@ -8,9 +8,9 @@ export declare function getLatestInfo(): Promise<Map<string, string> & {
         type?: string | undefined;
     }): void;
     getAllVersionInfo(): {
-        mac: any;
-        win: any;
-        linux: any;
+        MacOS: any;
+        Windows: any;
+        Linux: any;
     };
     getByOptions(opts: {
         lang?: string | undefined;
@@ -18,16 +18,6 @@ export declare function getLatestInfo(): Promise<Map<string, string> & {
         platform?: string | undefined;
         arch?: string | undefined;
         type?: string | undefined;
-    }): string | {
-        version: any;
-        desktop_version: any;
-        exe_size: any;
-        download_link_desktop: any;
-        channel: any;
-        arch: any;
-        releaseDate: any;
-        description: any;
-        adaptation: any;
-    };
+    }): string;
     getDefault(): string;
 }>;

@@ -9,48 +9,59 @@ import {
   PlatformType,
   ArchType,
 } from "./index";
-
+type File = {
+  fileName: string,
+  filePath: string
+};
 export const versions_folder = __dirname + "/../desktop-versions";
 export async function getLatestInfo() {
-  const filename_list = await fs.promises.readdir(versions_folder);
   const version_info_list: VersionInfoForDeskTop[] = [];
 
-  await Promise.all(
-    filename_list.map(async (filename) => {
-      if (
-        !(
-          filename.startsWith("v") &&
-          (filename.endsWith(".yaml") || filename.endsWith(".yml")) &&
-          filename.includes("#")
-        )
-      ) {
-        return;
+  const handleFile = (file: File) => {
+    const filename = file.fileName;
+    const filepath = file.filePath;
+    if (
+      !(
+        filename.startsWith("v") &&
+        (filename.endsWith(".yaml") || filename.endsWith(".yml")) &&
+        filename.includes("#")
+      )
+    ) {
+      return;
+    }
+    const file_base_info = path.parse(filename).name.split("#");
+    const version = file_base_info[0];
+    const platform = file_base_info[1] as PlatformType;
+    const channel = file_base_info[2] as ChannelType;
+    const arch = file_base_info[3] as ArchType;
+    const lang = file_base_info[4];
+    version_info_list.push({
+      filepath,
+      version,
+      lang: lang || "eng",
+      platform,
+      channel,
+      arch,
+      versionNumber: versionToNumber(version),
+    });
+  }
+  const handleFolder = async (folderName: string) => {
+    const filename_list = await fs.promises.readdir(folderName);
+    await Promise.all(filename_list.map(async (fileName) => {
+      const filePath = path.join(folderName, fileName);
+      const file_lstat = await fs.promises.lstat(filePath);
+      if (file_lstat.isDirectory()) {
+        await handleFolder(filePath);
+      } else if (file_lstat.isFile()) {
+        handleFile({ fileName, filePath });
       }
-      const filepath = path.join(versions_folder, filename);
-      const file_lstat = await fs.promises.lstat(filepath);
-      if (file_lstat.isFile()) {
-        const file_base_info = path.parse(filename).name.split("#");
-        const version = file_base_info[0];
-        const platform = file_base_info[1] as PlatformType;
-        const channel = file_base_info[2] as ChannelType;
-        const arch = file_base_info[3] as ArchType;
-        const lang = file_base_info[4];
-        version_info_list.push({
-          filepath,
-          version,
-          lang: lang || "eng",
-          platform,
-          channel,
-          arch,
-          versionNumber: versionToNumber(version),
-        });
-      }
-    })
-  );
+    }));
+  }
+
+  await handleFolder(versions_folder);
 
   const map = new Map<string, string>();
   const latestVersionMap = new Map<string, number>();
-
   version_info_list.forEach((info) => {
     const key = `${info.lang}/${info.channel}/${info.arch}/${info.platform}`;
     const oldVersion = latestVersionMap.get(key);
@@ -67,6 +78,7 @@ export async function getLatestInfo() {
     arch?: string;
     type?: string;
   };
+
   const formatVersionInfo = (str: string | undefined) => {
     if (!str) {
       return "";
@@ -79,7 +91,7 @@ export async function getLatestInfo() {
       download_link_desktop: info.files[0].url,
       channel: info.channel,
       arch: info.arch,
-      releaseDate: info.releaseDate,
+      release_date: info.release_date,
       description: info.description,
       adaptation: info.adaptation,
     }
@@ -92,16 +104,11 @@ export async function getLatestInfo() {
       }
     },
     getAllVersionInfo() {
-      let result = { mac: [] as any, win: [] as any, linux: [] as any };
-      const versionInfo = map.keys();
-      for (let info of versionInfo) {
-        const platform = info.split("/")[3];
-        if (platform === "mac") {
-          result.mac.push(formatVersionInfo(map.get(info)));
-        } else if (platform === "win") {
-          result.win.push(formatVersionInfo(map.get(info)));
-        } else if (platform === "linux") {
-          result.linux.push(formatVersionInfo(map.get(info)));
+      let result = { MacOS: [] as any, Windows: [] as any, Linux: [] as any };
+      for (const [key, info] of map) {
+        const platform = key.split("/")[3];
+        if (platform === "MacOS" || platform === "Windows" || platform === "Linux") {
+          result[platform].push(formatVersionInfo(info));
         }
       }
       return result;
@@ -110,7 +117,7 @@ export async function getLatestInfo() {
       const { lang = "eng", channel = "alpha", platform, arch, type } = opts;
       let fixPlatform = platform;
       if (platform == "darwin") {
-        fixPlatform = "mac";
+        fixPlatform = "MacOS";
       }
       const key = `${lang}/${channel}/${arch}/${fixPlatform}`;
       console.log(key);
@@ -146,7 +153,7 @@ export async function getLatestInfo() {
         // res = YAML.stringify(content);
         // map.set(key, res);
       }
-      return formatVersionInfo(res);
+      return res;
     },
     getDefault() {
       return (

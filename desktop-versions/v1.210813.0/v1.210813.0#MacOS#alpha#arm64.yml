@@ -1,0 +1,14 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/66d443bd80c8faca3f4bce75c7d3a0fbee8ccb6acab0bdf845e810db0eb727d3.zip
+    sha512: ZZgWH10zKGAthaFHZOpNG2niCz8CbfZOU94OQ8wYyvenBgFNkY8blAaECErrj86jPOPmW+0FUrcp6AtmHFyskw==
+    size: 192036603
+    blockMapSize: 200887
+path: bfchain-desktop-1.210813.0-arm64-mac.zip
+sha512: ZZgWH10zKGAthaFHZOpNG2niCz8CbfZOU94OQ8wYyvenBgFNkY8blAaECErrj86jPOPmW+0FUrcp6AtmHFyskw==
+release_date: 2021-08-13T12:26:49.984Z
+platform: MacOS
+channel: alpha
+arch: arm64
+description: 用户参与度的共识机制,人人可获得奖励
+adaptation: MacOS 10.11及以上版本

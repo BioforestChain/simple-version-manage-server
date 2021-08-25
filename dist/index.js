@@ -6,15 +6,21 @@ const path = require("path");
 const child_process_1 = require("child_process");
 const mobile_versions_1 = require("./mobile-versions");
 const desktop_versions_1 = require("./desktop-versions");
+const torrent_versions_1 = require("./torrent-versions");
 let [latest_mobile_version_info, latest_android_json] = mobile_versions_1.exportLatestInfo();
-fs.watch(mobile_versions_1.versions_folder, (e, filename) => {
+fs.watch(mobile_versions_1.versions_folder, { recursive: true }, (e, filename) => {
     console.log("changed", filename);
     [latest_mobile_version_info, latest_android_json] = mobile_versions_1.exportLatestInfo();
 });
 let latest_desktop_version_info = desktop_versions_1.getLatestInfo();
-fs.watch(desktop_versions_1.versions_folder, (e, filename) => {
+fs.watch(desktop_versions_1.versions_folder, { recursive: true }, (e, filename) => {
     console.log("changed", filename);
     latest_desktop_version_info = desktop_versions_1.getLatestInfo();
+});
+let latest_chainDate_version_info = torrent_versions_1.getLatestInfo();
+fs.watch(torrent_versions_1.versions_folder, { recursive: true }, (e, filename) => {
+    console.log("changed", filename);
+    latest_chainDate_version_info = torrent_versions_1.getLatestInfo();
 });
 /*MOKE DATA*/
 const target_mime_map = new Map([
@@ -132,10 +138,31 @@ const server = http.createServer((req, res) => {
         const type = paramMap.get("type");
         // const version = query.version as string | undefined;
         res.setHeader("Content-Type", "application/json");
+        if (!platform) {
+            res.end();
+            return;
+        }
         latest_desktop_version_info.then((l) => {
             const config_yaml = l.getByOptions({ lang, channel, platform, arch });
             res.end(config_yaml);
         });
+        return;
+    }
+    else if (url_info.pathname === "/api/app/download/getTorrent") {
+        const type = searchParams.get("type") || undefined;
+        res.setHeader("Content-Type", "application/json");
+        if (!type) {
+            latest_chainDate_version_info.then((l) => {
+                const result = l.getAllChainDataTorrent();
+                res.end(JSON.stringify(result));
+            });
+        }
+        else {
+            latest_chainDate_version_info.then((l) => {
+                const result = l.getTorrentByType(type);
+                res.end(JSON.stringify(result));
+            });
+        }
         return;
     }
     res.statusCode = 404;

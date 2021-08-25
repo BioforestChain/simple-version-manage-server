@@ -10,9 +10,12 @@ import {
   getLatestInfo as exportLatestDesktopInfo,
   versions_folder as desktop_versions_folder,
 } from "./desktop-versions";
+import { getLatestInfo as exportLatestChainData, versions_folder as chainData_version_folder } from "./torrent-versions"
+import { url } from "inspector";
 export type ChannelType = "alpha" | "beta" | "rc" | "stable";
-export type PlatformType = "mac" | "win" | "linux";
+export type PlatformType = "MacOS" | "Windows" | "Linux";
 export type ArchType = "arm64" | "x64";
+export type ChainDataType = "exeProgram" | "checkPointData";
 export type VersionInfo = {
   filepath: string;
   version: string;
@@ -32,16 +35,23 @@ export type VersionInfoForDeskTop = {
 let [latest_mobile_version_info, latest_android_json] =
   exportLatestMobileInfo();
 
-fs.watch(mobile_versions_folder, (e, filename) => {
+fs.watch(mobile_versions_folder, { recursive: true }, (e, filename) => {
   console.log("changed", filename);
   [latest_mobile_version_info, latest_android_json] = exportLatestMobileInfo();
 });
 
 let latest_desktop_version_info = exportLatestDesktopInfo();
 
-fs.watch(desktop_versions_folder, (e, filename) => {
+fs.watch(desktop_versions_folder, { recursive: true }, (e, filename) => {
   console.log("changed", filename);
   latest_desktop_version_info = exportLatestDesktopInfo();
+});
+
+
+let latest_chainDate_version_info = exportLatestChainData();
+fs.watch(chainData_version_folder, { recursive: true }, (e, filename) => {
+  console.log("changed", filename);
+  latest_chainDate_version_info = exportLatestChainData();
 });
 /*MOKE DATA*/
 
@@ -172,10 +182,29 @@ const server = http.createServer((req, res) => {
     const type = paramMap.get("type");
     // const version = query.version as string | undefined;
     res.setHeader("Content-Type", "application/json");
+    if (!platform) {
+      res.end();
+      return;
+    }
     latest_desktop_version_info.then((l) => {
       const config_yaml = l.getByOptions({ lang, channel, platform, arch });
       res.end(config_yaml);
     });
+    return;
+  } else if (url_info.pathname === "/api/app/download/getTorrent") {
+    const type = searchParams.get("type") || undefined;
+    res.setHeader("Content-Type", "application/json");
+    if (!type) {
+      latest_chainDate_version_info.then((l) => {
+        const result = l.getAllChainDataTorrent();
+        res.end(JSON.stringify(result));
+      });
+    } else {
+      latest_chainDate_version_info.then((l) => {
+        const result = l.getTorrentByType(type as ChainDataType);
+        res.end(JSON.stringify(result));
+      });
+    }
     return;
   }
   res.statusCode = 404;

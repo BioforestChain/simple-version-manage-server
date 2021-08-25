@@ -5,8 +5,8 @@ files:
     size: 168038501
 path: bfchain-desktop Setup 1.210813.0.exe
 sha512: 74jEs3hR86eBwEO323zewmkQYbQO9g6qoZvyOAxq2Zdrlnms080PRycys8O67GD+mnfBYro/cXdfU0CaZP6I1g==
-releaseDate: 2021-08-13T12:26:49.984Z
-platform: win
+release_date: 2021-08-13T12:26:49.984Z
+platform: Windows
 channel: alpha
 arch: x64
 description: 用户参与度的共识机制,人人可获得奖励

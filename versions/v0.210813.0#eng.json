@@ -1,7 +1,13 @@
 {
-  "@extends": ["./v0.210813.0.json"],
+  "@extends": [
+    "./v0.210813.0.json"
+  ],
   "changelogs": [
     "🎉 Officially released",
     "📦️ Update the built-in offline checkpoint data to 4121 rounds"
-  ]
+  ],
+  "alpha_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "alpha_android_adaptation": "Android 8 and above",
+  "beta_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "beta_android_adaptation": "Android 8 and above"
 }
