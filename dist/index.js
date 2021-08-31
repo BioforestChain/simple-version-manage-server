@@ -17,10 +17,10 @@ fs.watch(desktop_versions_1.versions_folder, { recursive: true }, (e, filename) 
     console.log("changed", filename);
     latest_desktop_version_info = desktop_versions_1.getLatestInfo();
 });
-let latest_chainDate_version_info = torrent_versions_1.getLatestInfo();
+let latest_torrents_version_info = torrent_versions_1.getLatestInfo();
 fs.watch(torrent_versions_1.versions_folder, { recursive: true }, (e, filename) => {
     console.log("changed", filename);
-    latest_chainDate_version_info = torrent_versions_1.getLatestInfo();
+    latest_torrents_version_info = torrent_versions_1.getLatestInfo();
 });
 /*MOKE DATA*/
 const target_mime_map = new Map([
@@ -149,17 +149,42 @@ const server = http.createServer((req, res) => {
         return;
     }
     else if (url_info.pathname === "/api/app/download/getTorrent") {
+        const link = searchParams.get("link") || undefined;
+        if (link) {
+            latest_torrents_version_info.then((l) => {
+                const path = l.getTorrentByType(link);
+                if (!path) {
+                    res.setHeader("Content-Type", "application/json");
+                    res.end(JSON.stringify({ message: "未知资源文件" }));
+                    return;
+                }
+                try {
+                    let stats = fs.statSync(path);
+                    res.writeHead(200, {
+                        "Content-Type": "application/octet-stream",
+                        "Content-Disposition": "attachment;filename=" + link + ".torrent",
+                        "Content-Length": stats.size
+                    });
+                    fs.createReadStream(path).pipe(res);
+                }
+                catch (error) {
+                    res.setHeader("Content-Type", "application/json");
+                    res.end(JSON.stringify({ message: "下载资源文件异常" }));
+                }
+            });
+            return;
+        }
         const type = searchParams.get("type") || undefined;
         res.setHeader("Content-Type", "application/json");
         if (!type) {
-            latest_chainDate_version_info.then((l) => {
-                const result = l.getAllChainDataTorrent();
+            latest_torrents_version_info.then((l) => {
+                const result = l.getAllTorrentConfig();
                 res.end(JSON.stringify(result));
             });
         }
         else {
-            latest_chainDate_version_info.then((l) => {
-                const result = l.getTorrentByType(type);
+            latest_torrents_version_info.then((l) => {
+                const result = l.getTorrentConfigByType(type);
                 res.end(JSON.stringify(result));
             });
         }

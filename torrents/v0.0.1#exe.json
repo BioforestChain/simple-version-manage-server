@@ -1,7 +1,0 @@
-{
-    "version": "0.0.1",
-    "type": "exeProgram",
-    "magnetLink": "magnet:?xt=urn:btih:1585fb268dbede69ccbd774230548df5dc3f0602&dn=bcf-win32.exe&tr=http%3A%2F%2Fp2ptracker.bfchain.com%2Fannounce&tr=udp%3A%2F%2Fp2ptracker.bfchain.com&tr=ws%3A%2F%2Fp2ptracker.bfchain.com&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=http%3A%2F%2F47.242.215.202%3A789%2F",
-    "lastUpdateTime": 1629788303502,
-    "size": 105072812
-}

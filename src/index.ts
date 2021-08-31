@@ -10,12 +10,13 @@ import {
   getLatestInfo as exportLatestDesktopInfo,
   versions_folder as desktop_versions_folder,
 } from "./desktop-versions";
-import { getLatestInfo as exportLatestChainData, versions_folder as chainData_version_folder } from "./torrent-versions"
+import { getLatestInfo as exportLatestTorrents, versions_folder as chainData_version_folder } from "./torrent-versions"
 import { url } from "inspector";
 export type ChannelType = "alpha" | "beta" | "rc" | "stable";
 export type PlatformType = "MacOS" | "Windows" | "Linux";
 export type ArchType = "arm64" | "x64";
-export type ChainDataType = "exeProgram" | "checkPointData";
+export type TorrentType = "exeProgramConfig" | "checkPointDataConfig" | "exe" | "chainData";
+
 export type VersionInfo = {
   filepath: string;
   version: string;
@@ -48,10 +49,10 @@ fs.watch(desktop_versions_folder, { recursive: true }, (e, filename) => {
 });
 
 
-let latest_chainDate_version_info = exportLatestChainData();
+let latest_torrents_version_info = exportLatestTorrents();
 fs.watch(chainData_version_folder, { recursive: true }, (e, filename) => {
   console.log("changed", filename);
-  latest_chainDate_version_info = exportLatestChainData();
+  latest_torrents_version_info = exportLatestTorrents();
 });
 /*MOKE DATA*/
 
@@ -192,16 +193,41 @@ const server = http.createServer((req, res) => {
     });
     return;
   } else if (url_info.pathname === "/api/app/download/getTorrent") {
+    const link = searchParams.get("link") || undefined;
+    if (link) {
+      latest_torrents_version_info.then((l) => {
+        const path = l.getTorrentByType(link as TorrentType);
+        if (!path) {
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify({ message: "未知资源文件" }));
+          return;
+        }
+        try {
+          let stats = fs.statSync(path);
+          res.writeHead(200, {
+            "Content-Type": "application/octet-stream",
+            "Content-Disposition": "attachment;filename=" + link + ".torrent",
+            "Content-Length": stats.size
+          });
+          fs.createReadStream(path).pipe(res);
+        } catch (error) {
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify({ message: "下载资源文件异常" }));
+        }
+      });
+      return;
+    }
+
     const type = searchParams.get("type") || undefined;
     res.setHeader("Content-Type", "application/json");
     if (!type) {
-      latest_chainDate_version_info.then((l) => {
-        const result = l.getAllChainDataTorrent();
+      latest_torrents_version_info.then((l) => {
+        const result = l.getAllTorrentConfig();
         res.end(JSON.stringify(result));
       });
     } else {
-      latest_chainDate_version_info.then((l) => {
-        const result = l.getTorrentByType(type as ChainDataType);
+      latest_torrents_version_info.then((l) => {
+        const result = l.getTorrentConfigByType(type as TorrentType);
         res.end(JSON.stringify(result));
       });
     }
