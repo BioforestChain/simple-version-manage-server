@@ -55,7 +55,6 @@ export async function getLatestInfo() {
       }
     }
   });
-  console.log(map);
   return Object.assign(map, {
     getAllTorrentConfig() {
       let result = { checkPointData: {} as any, exeProgram: {} as any, }

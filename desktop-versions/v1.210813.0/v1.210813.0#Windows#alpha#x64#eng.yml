@@ -9,5 +9,5 @@ release_date: 2021-08-13T12:26:49.984Z
 platform: Windows
 channel: alpha
 arch: x64
-description: 用户参与度的共识机制,人人可获得奖励
-adaptation: Windows 7 及以上版本
+description: The consensus mechanism that based on user engagement entitles everyone to receive rewards
+adaptation: Windows 7 and above

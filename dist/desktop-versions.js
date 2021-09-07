@@ -91,6 +91,17 @@ async function getLatestInfo() {
             }
             return result;
         },
+        getVersionInfoByLang(lang) {
+            let result = { MacOS: [], Windows: [], Linux: [] };
+            for (const [key, info] of map) {
+                const lan = key.split("/")[0];
+                const platform = key.split("/")[3];
+                if (lan == lang && (platform === "MacOS" || platform === "Windows" || platform === "Linux")) {
+                    result[platform].push(formatVersionInfo(info));
+                }
+            }
+            return result;
+        },
         getByOptions(opts) {
             const { lang = "eng", channel = "alpha", platform, arch, type } = opts;
             let fixPlatform = platform;

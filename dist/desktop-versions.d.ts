@@ -12,6 +12,11 @@ export declare function getLatestInfo(): Promise<Map<string, string> & {
         Windows: any;
         Linux: any;
     };
+    getVersionInfoByLang(lang: string): {
+        MacOS: any;
+        Windows: any;
+        Linux: any;
+    };
     getByOptions(opts: {
         lang?: string | undefined;
         channel?: "alpha" | "beta" | "rc" | "stable" | undefined;

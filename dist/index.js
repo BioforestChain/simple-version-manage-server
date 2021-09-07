@@ -115,9 +115,10 @@ const server = http.createServer((req, res) => {
     ) {
         const sign = searchParams.get("web") || undefined;
         if (sign) {
+            const lang = searchParams.get("lang") || "eng";
             res.setHeader("Content-Type", "application/json");
             latest_desktop_version_info.then(l => {
-                const result = l.getAllVersionInfo();
+                const result = l.getVersionInfoByLang(lang);
                 res.end(JSON.stringify(result));
             });
             return;

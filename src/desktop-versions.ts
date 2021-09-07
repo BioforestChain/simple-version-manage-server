@@ -113,6 +113,18 @@ export async function getLatestInfo() {
       }
       return result;
     },
+    getVersionInfoByLang(lang: string) {
+      let result = { MacOS: [] as any, Windows: [] as any, Linux: [] as any }
+      for (const [key, info] of map) {
+        const lan = key.split("/")[0]
+        const platform = key.split("/")[3];
+        if (lan == lang && (platform === "MacOS" || platform === "Windows" || platform === "Linux")) {
+          result[platform].push(formatVersionInfo(info));
+        }
+      }
+      return result;
+    }
+    ,
     getByOptions(opts: InfoOptions) {
       const { lang = "eng", channel = "alpha", platform, arch, type } = opts;
       let fixPlatform = platform;
