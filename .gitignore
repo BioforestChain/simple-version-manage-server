@@ -1,4 +1,3 @@
-dist
 .web-hook-secret
 node_modules
 yarn.lock
