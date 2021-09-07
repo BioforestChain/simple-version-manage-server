@@ -8,17 +8,17 @@ const mobile_versions_1 = require("./mobile-versions");
 const desktop_versions_1 = require("./desktop-versions");
 const torrent_versions_1 = require("./torrent-versions");
 let [latest_mobile_version_info, latest_android_json] = mobile_versions_1.exportLatestInfo();
-fs.watch(mobile_versions_1.versions_folder, { recursive: true }, (e, filename) => {
+fs.watch(mobile_versions_1.versions_folder, (e, filename) => {
     console.log("changed", filename);
     [latest_mobile_version_info, latest_android_json] = mobile_versions_1.exportLatestInfo();
 });
 let latest_desktop_version_info = desktop_versions_1.getLatestInfo();
-fs.watch(desktop_versions_1.versions_folder, { recursive: true }, (e, filename) => {
+fs.watch(desktop_versions_1.versions_folder, (e, filename) => {
     console.log("changed", filename);
     latest_desktop_version_info = desktop_versions_1.getLatestInfo();
 });
 let latest_torrents_version_info = torrent_versions_1.getLatestInfo();
-fs.watch(torrent_versions_1.versions_folder, { recursive: true }, (e, filename) => {
+fs.watch(torrent_versions_1.versions_folder, (e, filename) => {
     console.log("changed", filename);
     latest_torrents_version_info = torrent_versions_1.getLatestInfo();
 });

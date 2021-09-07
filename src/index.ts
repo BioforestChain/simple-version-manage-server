@@ -36,21 +36,21 @@ export type VersionInfoForDeskTop = {
 let [latest_mobile_version_info, latest_android_json] =
   exportLatestMobileInfo();
 
-fs.watch(mobile_versions_folder, { recursive: true }, (e, filename) => {
+fs.watch(mobile_versions_folder, (e, filename) => {
   console.log("changed", filename);
   [latest_mobile_version_info, latest_android_json] = exportLatestMobileInfo();
 });
 
 let latest_desktop_version_info = exportLatestDesktopInfo();
 
-fs.watch(desktop_versions_folder, { recursive: true }, (e, filename) => {
+fs.watch(desktop_versions_folder, (e, filename) => {
   console.log("changed", filename);
   latest_desktop_version_info = exportLatestDesktopInfo();
 });
 
 
 let latest_torrents_version_info = exportLatestTorrents();
-fs.watch(chainData_version_folder, { recursive: true }, (e, filename) => {
+fs.watch(chainData_version_folder, (e, filename) => {
   console.log("changed", filename);
   latest_torrents_version_info = exportLatestTorrents();
 });
