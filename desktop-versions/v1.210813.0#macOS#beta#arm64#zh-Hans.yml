@@ -1,0 +1,14 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/d097b6aa62e0aa36710a89ec143f9ec1c15cdae169820d1c0cc460c080c62fb5.zip
+    sha512: /dky52n/PXTA+GzRaEFrTznvWAptDnEyOzDTQP09XFk5ZB4pCJMpj2VtWuteuVh55QdsYYPUgbxLOscF5jwmcw==
+    size: 350567580
+    blockMapSize: 364371
+path: bfchain-desktop-1.210813.0-arm64-mac.zip
+sha512: /dky52n/PXTA+GzRaEFrTznvWAptDnEyOzDTQP09XFk5ZB4pCJMpj2VtWuteuVh55QdsYYPUgbxLOscF5jwmcw==
+release_date: 2021-08-13T11:59:56.947Z
+platform: macOS
+channel: beta
+arch: arm64
+description: BFChain生物链林首创基于参与度的共识机制，赋予区块链生态网络在扁平环境下具有更公平的参与环境，所有节点均可通过参与度获得挖矿奖励。
+adaptation: macOS 10.11及以上版本

@@ -1,0 +1,14 @@
+version: 1.210813.0
+files:
+  - url: https://bfchain-cdn.bnqkl.cn/desktop-releases/1.210813.0/1ecf95cd80f022a9b1f5849da11b16db957ede22baa70f88b046c3ce52d4eedf.zip
+    sha512: TUSyFhXUm9ggkWt00QJjcmqyvWK7KjxEGH3YafVwuYbSso2gMt6eOIX9u49kfRa7z/A7pDbvWBt2IbIzvhqnGg==
+    size: 190363334
+    blockMapSize: 197960
+path: bfchain-desktop-1.210813.0-mac.zip
+sha512: TUSyFhXUm9ggkWt00QJjcmqyvWK7KjxEGH3YafVwuYbSso2gMt6eOIX9u49kfRa7z/A7pDbvWBt2IbIzvhqnGg==
+release_date: 2021-08-13T12:26:49.984Z
+platform: macOS
+channel: alpha
+arch: x64
+description: Bioforest Chain has pioneered a participation-based consensus mechanism, which contributes to nodes’ fairer participation in the blockchain under a flat organizational structure. And all nodes can get mining rewards through their participation.
+adaptation: macOS 10.11 and above
