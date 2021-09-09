@@ -1,6 +1,6 @@
 {
 	"@IF:lang==='zh-cmn-Hans'": {
-		"share_message": "将全球首款移动公有链装进手机，将区块链的控制权握在手里！"
+		"share_message": "将全球首款移动区块链装进手机，将区块链的控制权握在手里！"
 	},
 	"@IF:lang==='en'": {
 		"share_message": "Put the world’s first mobile public chain into the phone, you grasp the control of blockchain in hand."
@@ -26,6 +26,5 @@
 			}
 		}
 	],
-
 	"success": true
 }

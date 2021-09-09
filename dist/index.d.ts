@@ -1,5 +1,5 @@
 export declare type ChannelType = "alpha" | "beta" | "rc" | "stable";
-export declare type PlatformType = "MacOS" | "Windows" | "Linux";
+export declare type PlatformType = "macOS" | "Windows" | "Linux";
 export declare type ArchType = "arm64" | "x64";
 export declare type TorrentType = "exeProgramConfig" | "checkPointDataConfig" | "exe" | "chainData";
 export declare type VersionInfo = {

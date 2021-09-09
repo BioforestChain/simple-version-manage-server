@@ -13,7 +13,7 @@ import {
 import { getLatestInfo as exportLatestTorrents, versions_folder as chainData_version_folder } from "./torrent-versions"
 import { url } from "inspector";
 export type ChannelType = "alpha" | "beta" | "rc" | "stable";
-export type PlatformType = "MacOS" | "Windows" | "Linux";
+export type PlatformType = "macOS" | "Windows" | "Linux";
 export type ArchType = "arm64" | "x64";
 export type TorrentType = "exeProgramConfig" | "checkPointDataConfig" | "exe" | "chainData";
 

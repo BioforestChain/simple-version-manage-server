@@ -8,12 +8,12 @@ export declare function getLatestInfo(): Promise<Map<string, string> & {
         type?: string | undefined;
     }): void;
     getAllVersionInfo(): {
-        MacOS: any;
+        macOS: any;
         Windows: any;
         Linux: any;
     };
     getVersionInfoByLang(lang: string): {
-        MacOS: any;
+        macOS: any;
         Windows: any;
         Linux: any;
     };

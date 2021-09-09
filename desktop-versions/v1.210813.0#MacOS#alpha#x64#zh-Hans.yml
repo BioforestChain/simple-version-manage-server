@@ -7,8 +7,8 @@ files:
 path: bfchain-desktop-1.210813.0-mac.zip
 sha512: TUSyFhXUm9ggkWt00QJjcmqyvWK7KjxEGH3YafVwuYbSso2gMt6eOIX9u49kfRa7z/A7pDbvWBt2IbIzvhqnGg==
 release_date: 2021-08-13T12:26:49.984Z
-platform: MacOS
+platform: macOS
 channel: alpha
 arch: x64
-description: 用户参与度的共识机制,人人可获得奖励
-adaptation: MacOS 10.11及以上版本
+description: BFChain生物链林首创基于参与度的共识机制，赋予区块链生态网络在扁平环境下具有更公平的参与环境，所有节点均可通过参与度获得挖矿奖励。
+adaptation: macOS 10.11及以上版本

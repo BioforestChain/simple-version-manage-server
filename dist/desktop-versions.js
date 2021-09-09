@@ -82,21 +82,21 @@ async function getLatestInfo() {
             }
         },
         getAllVersionInfo() {
-            let result = { MacOS: [], Windows: [], Linux: [] };
+            let result = { macOS: [], Windows: [], Linux: [] };
             for (const [key, info] of map) {
                 const platform = key.split("/")[3];
-                if (platform === "MacOS" || platform === "Windows" || platform === "Linux") {
+                if (platform === "macOS" || platform === "Windows" || platform === "Linux") {
                     result[platform].push(formatVersionInfo(info));
                 }
             }
             return result;
         },
         getVersionInfoByLang(lang) {
-            let result = { MacOS: [], Windows: [], Linux: [] };
+            let result = { macOS: [], Windows: [], Linux: [] };
             for (const [key, info] of map) {
                 const lan = key.split("/")[0];
                 const platform = key.split("/")[3];
-                if (lan == lang && (platform === "MacOS" || platform === "Windows" || platform === "Linux")) {
+                if (lan == lang && (platform === "macOS" || platform === "Windows" || platform === "Linux")) {
                     result[platform].push(formatVersionInfo(info));
                 }
             }
@@ -106,7 +106,7 @@ async function getLatestInfo() {
             const { lang = "eng", channel = "alpha", platform, arch, type } = opts;
             let fixPlatform = platform;
             if (platform == "darwin") {
-                fixPlatform = "MacOS";
+                fixPlatform = "macOS";
             }
             const key = `${lang}/${channel}/${arch}/${fixPlatform}`;
             console.log(key);
