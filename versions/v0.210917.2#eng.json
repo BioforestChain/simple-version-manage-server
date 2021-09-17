@@ -1,0 +1,7 @@
+{
+  "@extends": ["./v0.210917.2.json"],
+  "changelogs": [
+    "🎉 Officially released",
+    "📦️ Update the built-in offline checkpoint data to 4121 rounds"
+  ]
+}
