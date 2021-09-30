@@ -1,8 +1,14 @@
 {
-  "@extends": ["./v1.210922.0.json"],
+  "@extends": [
+    "./v1.210922.0.json"
+  ],
   "changelogs": [
     "⚡️ Improved performance of database indexes",
     "🐛 Fixed a bug in the algorithm for synchronizing transactions in some contexts",
     "🐛 Fixed a serious performance issue caused by the new version of the peer-ip policy"
-  ]
+  ],
+  "alpha_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "alpha_android_adaptation": "Android 8 and above",
+  "beta_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "beta_android_adaptation": "Android 8 and above"
 }

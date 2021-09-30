@@ -1,8 +1,14 @@
 {
-  "@extends": ["./v1.210922.0.json"],
+  "@extends": [
+    "./v1.210922.0.json"
+  ],
   "changelogs": [
     "⚡️ 提升了数据库索引的性能",
     "🐛 修复了部分情境下同步交易的算法错误的问题",
     "🐛 修复了新版节点策略带来的严重性能问题"
-  ]
+  ],
+  "alpha_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。",
+  "alpha_android_adaptation": "Android 8及以上版本",
+  "beta_android_adaptation": "Android 8及以上版本",
+  "beta_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。"
 }
