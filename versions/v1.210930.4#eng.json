@@ -1,0 +1,12 @@
+{
+  "@extends": ["./v1.210930.4.json"],
+  "changelogs": [
+    "💪 Optimize the stability of peer connections",
+    "💪 Improved synchronization stability",
+    "🐛 Fix some problems that my followers can't be added, as well as the style adjustment of some pages"
+  ],
+  "alpha_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "alpha_android_adaptation": "Android 8 and above",
+  "beta_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "beta_android_adaptation": "Android 8 and above"
+}
