@@ -1,0 +1,12 @@
+{
+  "@extends": ["./v1.211015.0.json"],
+  "changelogs": [
+    "💪 Optimizing the strategy and stability of p2p connections",
+    "💫 The-Peer-Manager now can shutdown the remote peer and show peer status information",
+    "🐛 Fix some bug of The-Delegate-Details"
+  ],
+  "alpha_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "alpha_android_adaptation": "Android 8 and above",
+  "beta_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "beta_android_adaptation": "Android 8 and above"
+}
