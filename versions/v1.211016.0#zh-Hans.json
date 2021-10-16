@@ -1,0 +1,12 @@
+{
+  "@extends": ["./v1.211016.0.json"],
+  "changelogs": [
+    "💪 优化区块链网络与点对点连接的策略与稳定性",
+    "💫 节点管理器新增关闭功能与状态信息",
+    "🐛 修复受托人详情页面一些信息展示错误的问题"
+  ],
+  "alpha_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。",
+  "alpha_android_adaptation": "Android 8及以上版本",
+  "beta_android_adaptation": "Android 8及以上版本",
+  "beta_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。"
+}
