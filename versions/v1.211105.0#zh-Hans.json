@@ -1,5 +1,5 @@
 {
-  "@extends": ["./v1.211016.0.json"],
+  "@extends": ["./v1.211105.0.json"],
   "changelogs": ["💪 改进投票算法，提升网络不稳定情况下的命中率"],
   "alpha_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。",
   "alpha_android_adaptation": "Android 8及以上版本",

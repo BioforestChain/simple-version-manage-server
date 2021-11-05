@@ -1,5 +1,5 @@
 {
-  "@extends": ["./v1.211016.0.json"],
+  "@extends": ["./v1.211105.0.json"],
   "changelogs": [
     "💪 Improved Auto-Vote-Algorithm to enhance the hit rate when the network instability"
   ],
