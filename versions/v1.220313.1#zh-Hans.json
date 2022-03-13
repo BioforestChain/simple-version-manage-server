@@ -1,0 +1,11 @@
+{
+  "@extends": ["./v1.220313.1.json"],
+  "changelogs": [
+    "⚡️ 优化同步算法，优化用户体验，提升性能",
+    "📦️ 更新内置离线的关键检查点数据到6062轮"
+  ],
+  "alpha_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。",
+  "alpha_android_adaptation": "Android 8及以上版本",
+  "beta_android_adaptation": "Android 8及以上版本",
+  "beta_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。"
+}
