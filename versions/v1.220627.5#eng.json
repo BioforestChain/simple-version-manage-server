@@ -1,0 +1,12 @@
+{
+  "@extends": ["./v1.220627.5.json"],
+  "changelogs": [
+    "📦️ Update the built-in offline checkpoint data to 7273 rounds",
+    "🐛 Fix the problem of missing sound effects when participating in voting",
+    "💫 Fix the search function of vote-list-page and improve its experience"
+  ],
+  "alpha_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "alpha_android_adaptation": "Android 8 and above",
+  "beta_android_description": "The world's first mobile consensus public chain, which can truly connect blockchain technology to mobile devices.",
+  "beta_android_adaptation": "Android 8 and above"
+}

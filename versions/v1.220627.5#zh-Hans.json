@@ -1,0 +1,12 @@
+{
+  "@extends": ["./v1.220627.5.json"],
+  "changelogs": [
+    "📦️ 更新内置离线的关键检查点数据到7273轮",
+    "🐛 修复参与投票时音效缺失的问题",
+    "💫 修复投票列表的搜索功能并改进其体验"
+  ],
+  "alpha_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。",
+  "alpha_android_adaptation": "Android 8及以上版本",
+  "beta_android_adaptation": "Android 8及以上版本",
+  "beta_android_description": "全球首款移动端共识区块链，实现能将区块链技术真正接入到移动端设备。"
+}
